@@ -5,7 +5,7 @@
 # Environment: Windows PowerShell 5.1+
 # ==============================================================================
 
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess=$true)]
 param(
     [switch]$SkipDexopt,
     [switch]$SkipReboot
@@ -48,7 +48,25 @@ if (-not $devices) {
 
 $deviceModel = (Invoke-Adb "getprop ro.product.device")
 $buildVersion = (Invoke-Adb "getprop ro.build.version.release")
-Log-Info "Detected Device: $deviceModel (Android $buildVersion)"
+$sdkVersion = (Invoke-Adb "getprop ro.build.version.sdk")
+Log-Info "Detected Device: $deviceModel (Android $buildVersion, SDK $sdkVersion)"
+
+# STRICT CODENAME VALIDATION (FAIL-CLOSED)
+$supportedCodenames = @("tulip", "twolip", "bouquet")
+if ($supportedCodenames -notcontains $deviceModel.ToLower().Trim()) {
+    Log-Error "Unsupported device codename: '$deviceModel'. This script is strictly validated for Redmi Note 6 Pro (tulip / twolip / bouquet). Aborting execution to prevent damage!"
+    exit 1
+}
+Log-Success "Verified supported hardware target: $deviceModel"
+
+# ANDROID VERSION VALIDATION
+$sdkInt = 0
+[int]::TryParse($sdkVersion, [ref]$sdkInt) | Out-Null
+if ($sdkInt -lt 34) {
+    Log-Error "Unsupported Android SDK version: $sdkVersion. This script requires Android 14+ (SDK 34+) with Linux kernel 4.19+."
+    exit 1
+}
+Log-Success "Verified supported Android generation: Android $buildVersion (SDK $sdkVersion)"
 
 $idStr = (Invoke-Adb "id")
 if ($idStr -notmatch "uid=0\(root\)") {
@@ -59,6 +77,10 @@ Log-Success "Verified ADB Root Privileges: $idStr"
 
 # --- STEP 2: SYSTEM SERVICE & APP DEBLOATING ---
 Log-Info "=== 2/6: REMOVING REDUNDANT PACKAGES & PERSISTENT BLOAT ==="
+$backupPkgPath = Join-Path $env:TEMP "tulip_pre_optimize_packages.txt"
+$installedPackagesRaw = (Invoke-Adb "pm list packages -u")
+[System.IO.File]::WriteAllText($backupPkgPath, $installedPackagesRaw, [System.Text.Encoding]::UTF8)
+Log-Info "Exported package baseline state to: $backupPkgPath"
 $packagesToDebloat = @(
     "com.android.se",                               # Non-existent NFC Secure Element daemon
     "org.ifaa.aidl.manager",                        # Chinese IFAA fingerprint payment (Alipay/WeChat)
@@ -171,7 +193,7 @@ done
 "@
 
 # Write directly to Magisk/KernelSU service.d
-$tmpScript = Join-Path $PSScriptRoot "99-performance-tuning.sh"
+$tmpScript = Join-Path $env:TEMP "tulip_99-performance-tuning.sh"
 [System.IO.File]::WriteAllText($tmpScript, $serviceScript.Replace("`r`n", "`n"), [System.Text.Encoding]::ASCII)
 adb push $tmpScript /data/adb/service.d/99-performance-tuning.sh > $null
 Invoke-Adb "chmod 755 /data/adb/service.d/99-performance-tuning.sh"

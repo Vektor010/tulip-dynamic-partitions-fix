@@ -33,7 +33,10 @@ def patch_lpmeta_buffer(raw: bytearray, name: str) -> bytearray:
                 struct.pack_into("<Q", raw, i, TULIP_CUST_SIZE)
                 patched_count += 1
     
-    print(f"[{name}] Replaced {patched_count} instance(s) of Whyred cust size ({WHYRED_CUST_SIZE} -> {TULIP_CUST_SIZE})")
+    if patched_count > 0:
+        print(f"[{name}] Replaced {patched_count} instance(s) of Whyred cust size ({WHYRED_CUST_SIZE} -> {TULIP_CUST_SIZE})")
+    else:
+        print(f"[{name}] [!] Warning: No instances of Whyred cust size ({WHYRED_CUST_SIZE}) found. File may already be patched or use non-standard sizes.")
 
     # 2. Find and update all LpMetadata headers
     headers = []
@@ -58,7 +61,7 @@ def patch_lpmeta_buffer(raw: bytearray, name: str) -> bytearray:
 
     return raw
 
-def patch_rom(zip_path: str, out_path: str = None):
+def patch_rom(zip_path: str, out_path: str = None, force: bool = False):
     if not os.path.exists(zip_path):
         print(f"[-] Error: File not found: {zip_path}")
         sys.exit(1)
@@ -67,14 +70,19 @@ def patch_rom(zip_path: str, out_path: str = None):
         base, ext = os.path.splitext(zip_path)
         out_path = f"{base}-tulip-fixed{ext}"
 
+    if os.path.abspath(zip_path) == os.path.abspath(out_path) and not force:
+        print("[-] Error: Output path cannot match input path without --force flag. Preserving original archive.")
+        sys.exit(1)
+
     print(f"[*] Input ROM:  {zip_path}")
     print(f"[*] Output ROM: {out_path}")
 
-    work_dir = os.path.join(os.path.dirname(zip_path), "_tulip_patch_tmp")
+    work_dir = os.path.join(os.path.dirname(os.path.abspath(zip_path)), "_tulip_patch_tmp")
     if os.path.exists(work_dir):
         shutil.rmtree(work_dir)
     os.makedirs(work_dir, exist_ok=True)
 
+    newly_created_out = False
     try:
         # Extract metadata files
         files_to_patch = ["unsparse_super_empty.img", "super_dummy.img"]
@@ -110,16 +118,14 @@ def patch_rom(zip_path: str, out_path: str = None):
         if os.path.abspath(zip_path) != os.path.abspath(out_path):
             print(f"[*] Creating copy of ROM archive: {out_path}...")
             shutil.copy2(zip_path, out_path)
+            newly_created_out = True
 
         # Update zip using 7-Zip (fastest & preserves timestamps/deflate headers)
         if os.path.exists(SEVEN_ZIP):
             print("[*] Updating archive via 7-Zip...")
-            cmd = [SEVEN_ZIP, "a", "-mx=0", out_path] + [os.path.join(work_dir, f) for f in extracted_files]
-            # cd to work_dir so paths are stored relative
             subprocess.run([SEVEN_ZIP, "a", "-mx=0", os.path.abspath(out_path)] + extracted_files, cwd=work_dir, check=True, stdout=subprocess.DEVNULL)
         else:
             print("[*] Updating archive via Python zipfile...")
-            # Python fallback if 7z not present
             with zipfile.ZipFile(out_path, 'a') as zf:
                 for fname in extracted_files:
                     zf.write(os.path.join(work_dir, fname), fname)
@@ -137,14 +143,22 @@ def patch_rom(zip_path: str, out_path: str = None):
         print(f"    Size: {os.path.getsize(out_path):,} bytes")
         print("\n[i] Now sideload or flash this zip in OrangeFox / TWRP without Error 1!")
 
+    except Exception as e:
+        if newly_created_out and os.path.exists(out_path):
+            try:
+                os.remove(out_path)
+            except OSError:
+                pass
+        raise e
     finally:
         shutil.rmtree(work_dir, ignore_errors=True)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python patch_tulip_dynamic_rom.py <path_to_rom.zip> [output_fixed.zip]")
-        sys.exit(1)
-    
-    in_zip = sys.argv[1]
-    out_zip = sys.argv[2] if len(sys.argv) > 2 else None
-    patch_rom(in_zip, out_zip)
+    import argparse
+    parser = argparse.ArgumentParser(description="Patch retrofitted dynamic partition ROMs for Xiaomi Redmi Note 6 Pro (Tulip).")
+    parser.add_argument("zip_path", help="Path to input ROM zip archive")
+    parser.add_argument("out_path", nargs="?", default=None, help="Path to output fixed zip archive (optional)")
+    parser.add_argument("--force", action="store_true", help="Allow in-place overwrite of original file")
+    args = parser.parse_args()
+
+    patch_rom(args.zip_path, args.out_path, force=args.force)

@@ -17,17 +17,23 @@ echo 5 > /proc/sys/vm/dirty_background_ratio
 echo 20 > /proc/sys/vm/stat_interval
 
 # 2. ZRAM Optimization (lz4 + 2.5GB)
-swapoff /dev/block/zram0 2>/dev/null
-echo 1 > /sys/block/zram0/reset 2>/dev/null
-echo lz4 > /sys/block/zram0/comp_algorithm 2>/dev/null
-echo 2684354560 > /sys/block/zram0/disksize 2>/dev/null
-mkswap /dev/block/zram0 2>/dev/null
-swapon /dev/block/zram0 -p 32758 2>/dev/null
+if [ -e /sys/block/zram0 ]; then
+    swapoff /dev/block/zram0 2>/dev/null
+    echo 1 > /sys/block/zram0/reset 2>/dev/null
+    if grep -q "lz4" /sys/block/zram0/comp_algorithm 2>/dev/null; then
+        echo lz4 > /sys/block/zram0/comp_algorithm 2>/dev/null
+    fi
+    echo 2684354560 > /sys/block/zram0/disksize 2>/dev/null
+    mkswap /dev/block/zram0 2>/dev/null
+    swapon /dev/block/zram0 -p 32758 2>/dev/null
+fi
 
-# 4. Storage I/O Optimization (eMMC 5.1)
-echo mq-deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
-echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb 2>/dev/null
-echo 0 > /sys/block/mmcblk0/queue/iostats 2>/dev/null
+# 3. Storage I/O Optimization (eMMC 5.1)
+if [ -e /sys/block/mmcblk0/queue/scheduler ]; then
+    echo mq-deadline > /sys/block/mmcblk0/queue/scheduler 2>/dev/null
+    echo 512 > /sys/block/mmcblk0/queue/read_ahead_kb 2>/dev/null
+    echo 0 > /sys/block/mmcblk0/queue/iostats 2>/dev/null
+fi
 
 # 5. UI Latency & GPU Optimization
 settings put global disable_window_blurs 1

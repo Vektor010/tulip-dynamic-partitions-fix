@@ -5,7 +5,7 @@
 # Environment: Windows PowerShell 5.1+
 # ==============================================================================
 
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess=$true)]
 param(
     [switch]$ResetDexopt,
     [switch]$SkipReboot
@@ -46,12 +46,23 @@ if (-not $devices) {
     exit 1
 }
 
+$deviceModel = (Invoke-Adb "getprop ro.product.device")
+$buildVersion = (Invoke-Adb "getprop ro.build.version.release")
+Log-Info "Detected Device: $deviceModel (Android $buildVersion)"
+
+# STRICT CODENAME VALIDATION (FAIL-CLOSED)
+$supportedCodenames = @("tulip", "twolip", "bouquet")
+if ($supportedCodenames -notcontains $deviceModel.ToLower().Trim()) {
+    Log-Error "Unsupported device codename: '$deviceModel'. This script is strictly validated for Redmi Note 6 Pro (tulip / twolip / bouquet). Aborting execution to prevent damage!"
+    exit 1
+}
+
 $idStr = (Invoke-Adb "id")
 if ($idStr -notmatch "uid=0\(root\)") {
     Log-Error "Root privileges not available via ADB! ($idStr)."
     exit 1
 }
-Log-Success "Connected to Tulip with root permissions: $idStr"
+Log-Success "Connected to Tulip ($deviceModel) with root permissions: $idStr"
 
 # --- STEP 2: RESTORING DEBLOATED PACKAGES ---
 Log-Info "=== 2/5: RESTORING ALL DEBLOATED PACKAGES ==="
@@ -142,7 +153,7 @@ if [ -e /sys/block/mmcblk0/queue/scheduler ]; then
 fi
 "@
 
-$tmpRestoreScript = Join-Path $PSScriptRoot "tmp_restore.sh"
+$tmpRestoreScript = Join-Path $env:TEMP "tulip_tmp_restore.sh"
 [System.IO.File]::WriteAllText($tmpRestoreScript, $stockRestoreScript.Replace("`r`n", "`n"), [System.Text.Encoding]::ASCII)
 adb push $tmpRestoreScript /data/local/tmp/restore_stock.sh > $null
 Invoke-Adb "sh /data/local/tmp/restore_stock.sh"

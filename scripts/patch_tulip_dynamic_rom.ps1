@@ -5,10 +5,15 @@
 #   or simply drag & drop the ROM.zip onto this script!
 # ==============================================================================
 
-[CmdletBinding()]
+[CmdletBinding(SupportsShouldProcess=$true)]
 param(
     [Parameter(Position=0, Mandatory=$false)]
-    [string]$RomZip
+    [string]$RomZip,
+
+    [Parameter(Position=1, Mandatory=$false)]
+    [string]$OutZip,
+
+    [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
@@ -26,17 +31,30 @@ if (-not (Test-Path $RomZip)) {
     exit 1
 }
 
+$pyCmd = Get-Command python -ErrorAction SilentlyContinue
+if (-not $pyCmd) {
+    Write-Error "Python 3 is not installed or not in PATH! Please install Python 3.8+."
+    exit 1
+}
+
 $pyScript = Join-Path $PSScriptRoot "patch_tulip_dynamic_rom.py"
 if (-not (Test-Path $pyScript)) {
     Write-Error "Patcher script missing: $pyScript"
     exit 1
 }
 
-Write-Host "[*] Executing patch on: $RomZip" -ForegroundColor Yellow
-python $pyScript "$RomZip"
+if ($PSCmdlet.ShouldProcess($RomZip, "Patch dynamic partition metadata for Tulip")) {
+    Write-Host "[*] Executing patch on: $RomZip" -ForegroundColor Yellow
+    $pyArgs = @("$pyScript", "$RomZip")
+    if ($OutZip) { $pyArgs += "$OutZip" }
+    if ($Force) { $pyArgs += "--force" }
 
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "`n[+] ROM successfully patched for Tulip! Ready to flash via Recovery." -ForegroundColor Green
-} else {
-    Write-Host "`n[-] Patch failed with exit code $LASTEXITCODE" -ForegroundColor Red
+    & python $pyArgs
+
+    if ($LASTEXITCODE -eq 0) {
+        Write-Host "`n[+] ROM successfully patched for Tulip! Ready to flash via Recovery." -ForegroundColor Green
+    } else {
+        Write-Host "`n[-] Patch failed with exit code $LASTEXITCODE" -ForegroundColor Red
+        exit $LASTEXITCODE
+    }
 }
