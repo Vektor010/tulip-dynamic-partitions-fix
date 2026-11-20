@@ -1,70 +1,111 @@
-# 📱 REDMI NOTE 6 PRO (TULIP) — ВСЁ ДЛЯ ПРОШИВКИ И ОПТИМИЗАЦИИ ANDROID 17
+# Redmi Note 6 Pro (Tulip) — Android 17 Toolkit & Fixes
 
-> **Простая памятка на русском языке**, чтобы ты всегда помнил, почему вылетали ошибки и как за 2 минуты прошить и настроить абсолютно любую прошивку на наш телефон.
-
----
-
-## 💡 ДВЕ ГЛАВНЫЕ ПРИЧИНЫ, ПОЧЕМУ ПРОШИВКИ НЕ РАБОТАЛИ (НА ПАЛЬЦАХ)
-
-1. **Ошибка 1 при установке (`assert failed: update_dynamic_partitions`):**
-   * **В чём суть:** Наш телефон — **Tulip** (Redmi Note 6 Pro). Его брат — **Whyred** (Redmi Note 5 Pro).  
-     У Whyred с завода раздел `cust` равен **832 МБ**, а у нашего Tulip — **831 МБ** (ровно на 1 Мегабайт меньше!).
-   * **Почему не шилось:** Разработчики ленятся и собирают один архив под оба телефона (Bouquet), прописывая размер от Whyred. Рекавери на Tulip видит нехватку 1 МБ и выдает ошибку: `Block device cust size is too small`.
-   * **Решение:** Прогнать прошивку через наш патчер [patch_tulip_dynamic_rom.ps1](file:///C:/Users/User/Documents/redmi/patch_tulip_dynamic_rom.ps1) (меняет эту цифру за 3 секунды).
-
-2. **Ошибка 2: Телефон уходит в вечный бутлуп обратно в рекавери:**
-   * **В чём суть:** В Android 17 включено новое шифрование `fscrypt v2`.  
-     Обычный сброс ("Format Data") в OrangeFox форматирует раздел в **старый формат ext4**, на котором это шифрование вылетает при включении.
-   * **Решение:** В OrangeFox всегда форматировать Data и Cache в **F2FS** (`Change File System -> F2FS`)!
+[🇷🇺 Инструкция на русском](#-инструкция-на-русском) | [🇬🇧 English Guide](#-english-guide)
 
 ---
 
-## 🚀 БЫСТРАЯ ИНСТРУКЦИЯ ИЗ 4 ШАГОВ (ДЛЯ ЛЮБОЙ ПРОШИВКИ)
+## 🇷🇺 Инструкция на русском
 
-### Шаг 1: Пропатчить ZIP прошивки
-1. Скачал любую новую прошивку (Infinity-X, EvolutionX, LineageOS и т.д.).
-2. Нажми правой кнопкой на [patch_tulip_dynamic_rom.ps1](file:///C:/Users/User/Documents/redmi/patch_tulip_dynamic_rom.ps1) → **Выполнить с помощью PowerShell** (или просто перетащи архив на скрипт).
-3. Через 5 секунд рядом появится готовый файл: `Имя_прошивки-tulip-fixed.zip`.
+Инструменты для установки и оптимизации Android 17 на **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
 
-### Шаг 2: Прошить архив
-1. Зайди в **OrangeFox Recovery** (или AOSP Recovery).
-2. Подключи кабель к ПК и выполни команду:
-   ```bash
-   adb sideload Имя_прошивки-tulip-fixed.zip
-   ```
-   *(Или закинь на MicroSD флешку и нажми Install в рекавери).*
-3. Прошивка завершится успешно на 100% без Error 1!
+### ❓ В чём проблема с прошивками?
+1. **Ошибка при установке (`assert failed: update_dynamic_partitions` / Error 1):**  
+   Разработчики создают общий образ для Redmi Note 5 Pro (Whyred) и Redmi Note 6 Pro (Tulip).  
+   У Whyred раздел `cust` равен **832 МБ**, а у Tulip с завода — **831 МБ** (на 1 МБ меньше).  
+   Рекавери видит нехватку 1 МБ и прерывает установку.
+2. **Вечная перезагрузка в рекавери (Bootloop to Recovery):**  
+   В Android 17 ядро 4.19 требует шифрование `fscrypt v2`.  
+   Стандартный формат ext4 не поддерживает нужные флаги, поэтому разделы `/data` и `/cache` **обязательно** должны быть в файловой системе **F2FS**.
 
-### Шаг 3: Сменить файловую систему на F2FS (ОБЯЗАТЕЛЬНО!)
-Не перезагружай телефон сразу!
-1. В OrangeFox нажми иконку меню снизу справа → **Manage Partitions** (Управление разделами).
-2. Нажми на **Data** → кнопка **Change File System** (Сменить ФС) → выбери **F2FS** → проведи свайп.
-3. Нажми на **Cache** → **Change File System** → выбери **F2FS** → проведи свайп.
-4. Нажми **Reboot System** (Перезагрузка).  
-   Телефон спокойно включится в Android 17!
+---
 
-### Шаг 4: Глубокая оптимизация (в 1 клик через ПК)
-Чтобы телефон летал, не грелся и держал батарею:
-1. Включи отладку по USB на телефоне и запусти:
+### 🚀 Пошаговое руководство для новичков
+
+#### Шаг 1: Исправление архива прошивки
+1. Скачайте архив прошивки (например, Infinity-X).
+2. Запустите скрипт `patch_tulip_dynamic_rom.ps1` в PowerShell:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File "C:\Users\User\Documents\redmi\optimize_android17.ps1"
+   powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
    ```
-2. Скрипт сам:
-   - Отключит 20 фоновых пожирателей памяти (рекламу Google, неработающий NFC, оверлеи).
-   - Настроит быстрый ZRAM 2.5 ГБ (lz4) и устранит фризы флэш-памяти.
-   - Скомпилирует все важные приложения в нативный код (`dex2oat speed`).
-   - Уменьшит лаги отрисовки на 62%!
+   *(или просто запустите скрипт и введите путь к файлу).*
+3. Через несколько секунд рядом появится готовый файл `*-tulip-fixed.zip`.
+
+#### Шаг 2: Прошивка через Recovery
+1. Перезагрузите телефон в OrangeFox или TWRP.
+2. Подключите кабель к ПК и выполните:
+   ```powershell
+   adb sideload имя_файла-tulip-fixed.zip
+   ```
+   *(либо скопируйте архив на карту памяти MicroSD и установите через меню Install).*
+
+#### Шаг 3: Настройка файловой системы в F2FS (Обязательно!)
+Не перезагружайте телефон сразу после прошивки!
+1. В OrangeFox откройте **Manage Partitions** (Управление разделами).
+2. Выберите раздел **Data** → **Change File System** → выберите **F2FS** → проведите свайп.
+3. Выберите раздел **Cache** → **Change File System** → выберите **F2FS** → проведите свайп.
+4. Нажмите **Reboot System** (Перезагрузка в систему).
+
+#### Шаг 4: Оптимизация системы (через ПК)
+После включения телефона включите «Отладку по USB» в настройках разработчика и запустите:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
+```
+Скрипт отключит ненужные службы, настроит быстрый ZRAM (2.5 ГБ LZ4) и оптимизирует графику.
 
 ---
 
-## 🗂️ ЧТО НАХОДИТСЯ В ЭТОМ РЕПОЗИТОРИИ:
+## 🇬🇧 English Guide
 
-* **[patch_tulip_dynamic_rom.ps1](file:///C:/Users/User/Documents/redmi/patch_tulip_dynamic_rom.ps1)** — волшебная палочка: патчер любых прошивок для Tulip в 1 клик.
-* **[patch_tulip_dynamic_rom.py](file:///C:/Users/User/Documents/redmi/patch_tulip_dynamic_rom.py)** — движок патчера на Python (работает на Windows, Linux, Mac).
-* **[optimize_android17.ps1](file:///C:/Users/User/Documents/redmi/optimize_android17.ps1)** — скрипт полной оптимизации системы и памяти Android 17.
-* **[restore_android17.ps1](file:///C:/Users/User/Documents/redmi/restore_android17.ps1)** — скрипт 100% отката всех настроек к заводским.
-* **[HOWTO_FIX_TULIP_DYNAMIC_ROMS.md](file:///C:/Users/User/Documents/redmi/HOWTO_FIX_TULIP_DYNAMIC_ROMS.md)** — глубокая техническая статья с разбором HEX-кодов и устройства динамических разделов.
-* **[optimization_report.md](file:///C:/Users/User/Documents/redmi/optimization_report.md)** — полный инженерный отчёт со сравнительными графиками и бенчмарками До/После.
-* **[android17_baseline.txt](file:///C:/Users/User/Documents/redmi/android17_baseline.txt)** — замеры системы до оптимизации.
-* **[android17_optimized.txt](file:///C:/Users/User/Documents/redmi/android17_optimized.txt)** — замеры системы после оптимизации.
-* **`diagnostics/`** — 56 подробных логов и дампов телеметрии Snapdragon 636 / eMMC / RAM.
+Toolkit for flashing and optimizing Android 17 on **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
+
+### ❓ Why do unified dynamic ROMs fail on Tulip?
+1. **Installation Error (`assert failed: update_dynamic_partitions` / Error 1):**  
+   ROMs are built as unified "bouquet" packages for both Whyred and Tulip.  
+   Whyred's factory `cust` partition size is **872,415,232 bytes (832 MB)**, while Tulip's factory size is **871,366,656 bytes (831 MB)**.  
+   Because of this 1 MB difference, recovery's `liblp` throws an assertion failure (`cust size too small`).
+2. **Bootloop to Recovery:**  
+   Android 17 on 4.19 kernel uses `fscrypt v2` encryption.  
+   Standard ext4 formatting fails to mount with v2 encryption flags. Data and cache **must** be formatted as **F2FS**.
+
+---
+
+### 🚀 Step-by-Step Beginner Guide
+
+#### Step 1: Patch the ROM ZIP
+1. Download your desired dynamic ROM ZIP.
+2. Run the patcher in PowerShell:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
+   ```
+3. A patched file named `*-tulip-fixed.zip` will be generated in seconds.
+
+#### Step 2: Flash via Recovery
+1. Boot into OrangeFox or TWRP recovery.
+2. Flash the patched archive via ADB sideload:
+   ```powershell
+   adb sideload path\to\rom-tulip-fixed.zip
+   ```
+   *(or copy to MicroSD card and flash via recovery install menu).*
+
+#### Step 3: Format Data and Cache to F2FS (Mandatory!)
+Do NOT reboot immediately after flashing!
+1. In OrangeFox go to: **Manage Partitions**.
+2. Select **Data** → **Change File System** → choose **F2FS** → swipe to apply.
+3. Select **Cache** → **Change File System** → choose **F2FS** → swipe to apply.
+4. Tap **Reboot System**.
+
+#### Step 4: Run Performance Optimization
+Once booted, enable USB Debugging in Developer Options and run:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
+```
+This script trims background bloat, configures 2.5 GB LZ4 ZRAM, and optimizes UI frame pacing.
+
+---
+
+### 📂 Repository Contents
+* `patch_tulip_dynamic_rom.ps1` / `.py` — 1-click ROM metadata patcher for Tulip.
+* `optimize_android17.ps1` — Automated Android 17 performance tuning script.
+* `restore_android17.ps1` — Full rollback script to restore stock configuration.
+* `HOWTO_FIX_TULIP_DYNAMIC_ROMS.md` — In-depth technical explanation of partition layouts.
+* `optimization_report.md` — Engineering report with before/after benchmarks.
