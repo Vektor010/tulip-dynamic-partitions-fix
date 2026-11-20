@@ -13,6 +13,11 @@
 │   ├── optimization_report.md
 │   ├── android17_baseline.txt
 │   └── android17_optimized.txt
+├── drivers/                     # 🔌 Официальные USB-драйверы Fastboot & ADB
+│   ├── install_drivers.cmd      # ⚡ Установка всех драйверов в 1 клик
+│   ├── xiaomi_usb_driver/       # Драйверы Xiaomi Technology (VID 2717)
+│   ├── google_usb_driver/       # Драйверы Google WinUSB (r13)
+│   └── README.md                # Руководство по установке драйверов
 ├── scripts/                     # ⚙️ Скрипты оптимизации и ПК-утилиты
 │   ├── optimize_android17.ps1
 │   ├── restore_android17.ps1
@@ -68,6 +73,16 @@
 4. Вернитесь в меню **Wipe** → нажмите **Format Data** → напишите `yes`.
 5. Установите архив прошивки через кнопку **Install**.
 6. Перезагрузитесь в систему (**Reboot System**).
+
+---
+
+### 🔌 ЕСЛИ ПК НЕ ВИДИТ ТЕЛЕФОН (ДРАЙВЕРЫ FASTBOOT И ADB)
+
+Если при подключении к компьютеру в режиме Fastboot или с включенной отладкой по USB телефон не определяется (или в Диспетчере устройств горит жёлтый треугольник ⚠️):
+* Запустите автоматический установщик в 1 клик:  
+  **`drivers\install_drivers.cmd`** (от имени администратора).
+* Подробная инструкция по ручной установке и решению проблем с AMD Ryzen:  
+  👉 **[drivers/README.md](drivers/README.md)**
 
 ---
 
@@ -128,3 +143,13 @@ You do NOT need a PC or patch script if you configure partitions properly in Ora
 4. Go to **Wipe** → **Format Data** → type `yes`.
 5. Flash the ROM zip via **Install**.
 6. Tap **Reboot System**.
+
+---
+
+### 🔌 USB DRIVERS (FASTBOOT & ADB)
+
+If Windows fails to detect the phone in Fastboot or ADB (or displays a yellow exclamation mark ⚠️ in Device Manager):
+* Run the 1-click driver installer as Administrator:  
+  **`drivers\install_drivers.cmd`**
+* Detailed setup guide and AMD Ryzen USB 3.0 fix:  
+  👉 **[drivers/README.md](drivers/README.md)**
