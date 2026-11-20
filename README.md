@@ -6,7 +6,7 @@
 
 ## 🇷🇺 Инструкция на русском
 
-Инструменты для установки и оптимизации Android 17 на **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
+Инструменты и пошаговые инструкции для установки и оптимизации Android 17 на **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
 
 ### ❓ В чём проблема с прошивками?
 1. **Ошибка при установке (`assert failed: update_dynamic_partitions` / Error 1):**  
@@ -19,44 +19,64 @@
 
 ---
 
-### 🚀 Пошаговое руководство для новичков
+### 📱 КАК СДЕЛАТЬ ВСЁ САМОМУ В RECOVERY (ПО КНОПКАМ)
 
-#### Шаг 1: Исправление архива прошивки
+После успешной прошивки архива **НЕ ПЕРЕЗАГРУЖАЙТЕСЬ СРАЗУ**! Выполните смену файловой системы:
+
+#### 🦊 Способ 1: В OrangeFox Recovery
+1. На главном экране нажмите иконку **Меню** (три полоски / иконка меню в правом нижнем углу).
+2. Выберите пункт **Manage Partitions** (Управление разделами).
+3. В списке разделов нажмите на **Data**.
+4. Нажмите кнопку **Change FS** (Сменить ФС).
+5. Выберите **F2FS** и проведите внизу свайп для подтверждения (**Swipe to Apply**).
+6. Вернитесь назад, нажмите на раздел **Cache**.
+7. Нажмите **Change FS** → выберите **F2FS** → проведите свайп.
+8. Нажмите **Reboot System** (Перезагрузка в систему).
+
+#### 🔷 Способ 2: В TWRP Recovery
+1. На главном экране нажмите **Wipe** (Очистка).
+2. Нажмите **Advanced Wipe** (Выборочная очистка).
+3. Поставьте галочку **ТОЛЬКО** напротив пункта **Data** (не проводите свайп очистки!).
+4. Внизу нажмите кнопку **Repair or Change File System** (Восстановить или изменить ФС).
+5. Нажмите **Change File System** (Изменить файловую систему).
+6. Выберите **F2FS** и проведите свайп (**Swipe to Change**).
+7. Вернитесь назад, отметьте галочкой **Cache**.
+8. Нажмите **Repair or Change File System** → **Change File System** → выберите **F2FS** → свайп.
+9. Перейдите в **Reboot** → **System**.
+
+---
+
+### 💻 ШАГ-ЗА-ШАГОМ: ПРОШИВКА И ПАТЧ
+
+#### Шаг 1: Исправление архива прошивки (от Error 1)
 1. Скачайте архив прошивки (например, Infinity-X).
 2. Запустите скрипт `patch_tulip_dynamic_rom.ps1` в PowerShell:
    ```powershell
    powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
    ```
-   *(или просто запустите скрипт и введите путь к файлу).*
 3. Через несколько секунд рядом появится готовый файл `*-tulip-fixed.zip`.
 
-#### Шаг 2: Прошивка через Recovery
-1. Перезагрузите телефон в OrangeFox или TWRP.
-2. Подключите кабель к ПК и выполните:
-   ```powershell
-   adb sideload имя_файла-tulip-fixed.zip
-   ```
-   *(либо скопируйте архив на карту памяти MicroSD и установите через меню Install).*
+#### Шаг 2: Установка через Recovery
+```powershell
+adb sideload имя_файла-tulip-fixed.zip
+```
+*(либо скиньте архив на карту памяти MicroSD и прошейте через меню Install в рекавери).*
 
-#### Шаг 3: Настройка файловой системы в F2FS (Обязательно!)
-Не перезагружайте телефон сразу после прошивки!
-1. В OrangeFox откройте **Manage Partitions** (Управление разделами).
-2. Выберите раздел **Data** → **Change File System** → выберите **F2FS** → проведите свайп.
-3. Выберите раздел **Cache** → **Change File System** → выберите **F2FS** → проведите свайп.
-4. Нажмите **Reboot System** (Перезагрузка в систему).
+#### Шаг 3: Смена ФС на F2FS
+Выполните действия по кнопкам в OrangeFox или TWRP, описанные выше.
 
-#### Шаг 4: Оптимизация системы (через ПК)
-После включения телефона включите «Отладку по USB» в настройках разработчика и запустите:
+#### Шаг 4: Оптимизация системы (в 1 клик через ПК)
+После загрузки системы включите «Отладку по USB» в меню разработчика и запустите:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
 ```
-Скрипт отключит ненужные службы, настроит быстрый ZRAM (2.5 ГБ LZ4) и оптимизирует графику.
+Скрипт отключит 20 фоновых служб, настроит ZRAM 2.5 ГБ (LZ4) и устранит микрофризы UI.
 
 ---
 
 ## 🇬🇧 English Guide
 
-Toolkit for flashing and optimizing Android 17 on **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
+Toolkit and button-by-button guide for flashing and optimizing Android 17 on **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
 
 ### ❓ Why do unified dynamic ROMs fail on Tulip?
 1. **Installation Error (`assert failed: update_dynamic_partitions` / Error 1):**  
@@ -69,43 +89,52 @@ Toolkit for flashing and optimizing Android 17 on **Xiaomi Redmi Note 6 Pro (Tul
 
 ---
 
-### 🚀 Step-by-Step Beginner Guide
+### 📱 HOW TO DO IT MANUALLY IN RECOVERY (BUTTON-BY-BUTTON)
 
-#### Step 1: Patch the ROM ZIP
-1. Download your desired dynamic ROM ZIP.
-2. Run the patcher in PowerShell:
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
-   ```
-3. A patched file named `*-tulip-fixed.zip` will be generated in seconds.
+After installing the ROM zip, **DO NOT REBOOT IMMEDIATELY**! Change the filesystem to F2FS:
 
-#### Step 2: Flash via Recovery
-1. Boot into OrangeFox or TWRP recovery.
-2. Flash the patched archive via ADB sideload:
-   ```powershell
-   adb sideload path\to\rom-tulip-fixed.zip
-   ```
-   *(or copy to MicroSD card and flash via recovery install menu).*
+#### 🦊 Method 1: In OrangeFox Recovery
+1. On the main screen, tap the **Menu** icon (bottom right corner).
+2. Tap **Manage Partitions**.
+3. Select **Data** from the list.
+4. Tap **Change FS**.
+5. Select **F2FS** and swipe to apply (**Swipe to Apply**).
+6. Go back and select **Cache**.
+7. Tap **Change FS** → select **F2FS** → swipe to apply.
+8. Tap **Reboot System**.
 
-#### Step 3: Format Data and Cache to F2FS (Mandatory!)
-Do NOT reboot immediately after flashing!
-1. In OrangeFox go to: **Manage Partitions**.
-2. Select **Data** → **Change File System** → choose **F2FS** → swipe to apply.
-3. Select **Cache** → **Change File System** → choose **F2FS** → swipe to apply.
-4. Tap **Reboot System**.
-
-#### Step 4: Run Performance Optimization
-Once booted, enable USB Debugging in Developer Options and run:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
-```
-This script trims background bloat, configures 2.5 GB LZ4 ZRAM, and optimizes UI frame pacing.
+#### 🔷 Method 2: In TWRP Recovery
+1. Tap **Wipe** on the main menu.
+2. Tap **Advanced Wipe**.
+3. Check **ONLY** the **Data** box (do NOT swipe yet!).
+4. Tap **Repair or Change File System** at the bottom.
+5. Tap **Change File System**.
+6. Select **F2FS** and swipe to confirm (**Swipe to Change**).
+7. Go back, check **Cache**.
+8. Tap **Repair or Change File System** → **Change File System** → choose **F2FS** → swipe.
+9. Go to **Reboot** → **System**.
 
 ---
 
-### 📂 Repository Contents
-* `patch_tulip_dynamic_rom.ps1` / `.py` — 1-click ROM metadata patcher for Tulip.
-* `optimize_android17.ps1` — Automated Android 17 performance tuning script.
-* `restore_android17.ps1` — Full rollback script to restore stock configuration.
-* `HOWTO_FIX_TULIP_DYNAMIC_ROMS.md` — In-depth technical explanation of partition layouts.
-* `optimization_report.md` — Engineering report with before/after benchmarks.
+### 💻 FLASHING & OPTIMIZATION WORKFLOW
+
+#### Step 1: Patch the ROM ZIP (Fixes Error 1)
+```powershell
+powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
+```
+A patched file named `*-tulip-fixed.zip` will be generated in seconds.
+
+#### Step 2: Flash via Recovery
+```powershell
+adb sideload path\to\rom-tulip-fixed.zip
+```
+*(or flash via Install menu from MicroSD card).*
+
+#### Step 3: Switch Data & Cache to F2FS
+Follow the OrangeFox / TWRP button guide above.
+
+#### Step 4: Run Performance Optimization
+```powershell
+powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
+```
+Removes 20 background bloatware services, tunes 2.5 GB LZ4 ZRAM, and stabilizes 60 FPS UI rendering.
