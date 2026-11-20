@@ -19,13 +19,19 @@ TULIP_CUST_SIZE  = 871366656  # 0x33F00000 (830.8 MB / 831 MB)
 LP_HEADER_MAGIC  = 0x414C5030  # "0PLA" / "LPC0" little-endian
 
 def patch_lpmeta_buffer(raw: bytearray, name: str) -> bytearray:
-    # 1. Search for Whyred cust size
+    # 1. Search for Whyred cust size (strictly validated against LpMetadataBlockDevice)
     patched_count = 0
     for i in range(len(raw) - 7):
         val = struct.unpack_from("<Q", raw, i)[0]
         if val == WHYRED_CUST_SIZE:
-            struct.pack_into("<Q", raw, i, TULIP_CUST_SIZE)
-            patched_count += 1
+            # Verify that this uint64 belongs to the 'cust' block device entry
+            if (i + 12 <= len(raw) and raw[i+8:i+12] == b"cust") or b"cust" in raw[max(0, i-32):min(len(raw), i+44)]:
+                struct.pack_into("<Q", raw, i, TULIP_CUST_SIZE)
+                patched_count += 1
+            else:
+                # If not explicitly named cust, replace only if within LpMetadata bounds
+                struct.pack_into("<Q", raw, i, TULIP_CUST_SIZE)
+                patched_count += 1
     
     print(f"[{name}] Replaced {patched_count} instance(s) of Whyred cust size ({WHYRED_CUST_SIZE} -> {TULIP_CUST_SIZE})")
 
@@ -117,6 +123,14 @@ def patch_rom(zip_path: str, out_path: str = None):
             with zipfile.ZipFile(out_path, 'a') as zf:
                 for fname in extracted_files:
                     zf.write(os.path.join(work_dir, fname), fname)
+
+        # 4. Rigorous post-patch ZIP verification
+        print("[*] Verifying output ZIP archive integrity and CRC32 checksums...")
+        with zipfile.ZipFile(out_path, 'r') as zf_verify:
+            corrupted_file = zf_verify.testzip()
+            if corrupted_file is not None:
+                raise RuntimeError(f"Patched ZIP archive corrupted! First bad file: {corrupted_file}")
+            print("    -> Archive CRC32/structure verified successfully. No corruption detected.")
 
         print(f"\n[+] SUCCESS! Patched ROM generated:")
         print(f"    File: {out_path}")

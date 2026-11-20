@@ -1,185 +1,107 @@
-# 📱 Redmi Note 6 Pro (Tulip) — Руководство по динамическим прошивкам (Android 15 / 16 / 17)
+# tulip-dynamic-partitions-fix
 
-[🇷🇺 Инструкция на русском](#-инструкция-на-русском) | [🇬🇧 English Guide](#-english-guide)
+[![Device](https://img.shields.io/badge/Device-Redmi%20Note%206%20Pro%20(Tulip)-blue.svg)](#-device-compatibility)
+[![SoC](https://img.shields.io/badge/SoC-Qualcomm%20Snapdragon%20636-orange.svg)](#-device-compatibility)
+[![Android](https://img.shields.io/badge/Android-15%20%7C%2016%20%7C%2017-green.svg)](#-device-compatibility)
+[![Kernel](https://img.shields.io/badge/Kernel-4.19%20CIP-lightgrey.svg)](#-device-compatibility)
+[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+
+[🇷🇺 Документация на русском](docs/ru/README.md) | [🇬🇧 English Documentation](docs/en/README.md)
+
+Open-source toolkit and technical reference for resolving **Error 1 (`update_dynamic_partitions`)** and **Recovery Bootloop** on the **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)** across retrofitted Android 15, 16, and 17 custom ROMs.
 
 ---
 
-## 📁 Структура репозитория
+## 🎯 Purpose and Scope
+
+### What this project fixes:
+1. **Installation Error 1 (`Block device cust size is too small`):**  
+   Resolves the physical partition size mismatch where unified `bouquet` ROMs expect Whyred's 832 MB `cust` size instead of Tulip's factory 830.8 MB allocation.
+2. **First-Boot Recovery Bootloop:**  
+   Resolves `vold` storage encryption crashes (`fscrypt v2` on Linux kernel 4.19) by guiding proper F2FS filesystem configuration.
+3. **RAM & Storage Stalls on 4GB Hardware:**  
+   Provides optional, reversible post-install ADB scripts for 2.5 GB LZ4 ZRAM and eMMC scheduler optimization.
+
+### What this project does NOT do:
+* It does **not** alter bootloader partitions (`xbl`, `tz`, `rpm`, `aboot`).
+* It does **not** modify raw eMMC GPT partition boundaries on the device.
+* It does **not** bypass carrier or SIM locks.
+
+> [!CAUTION]
+> **Data Loss Warning:** Flashing dynamic ROMs and transitioning to F2FS requires formatting user data. Back up all personal files and radio partitions (EFS/Modem) prior to flashing.
+
+---
+
+## ⚡ Capability Overview
+
+| Feature | Purpose | PC Required? | Recovery Method |
+| :--- | :--- | :---: | :---: |
+| **Diagnostics** | Hardware, partition, and RAM verification | Yes (ADB) | Not applicable |
+| **ROM Patcher** | Automated `unsparse_super_empty.img` byte & SHA-256 fix | Yes (Windows/Python) | Flash patched ZIP |
+| **Manual Patch** | In-depth hex editing and independent checksum validation | Yes (Hex Editor) | Flash modified ZIP |
+| **F2FS Setup** | Eliminates kernel 4.19 encryption bootloops | **No (Phone only)** | OrangeFox / TWRP |
+| **System Tuning** | Optional bloatware cleanup & ZRAM tuning for 4GB RAM | Yes (ADB Root) | Post-boot script |
+
+---
+
+## 🧭 Navigation & Documentation Index
+
+### 🇷🇺 Документация (Русский)
+* [Быстрый старт](docs/ru/GETTING_STARTED.md) — Пошаговое руководство для новичков.
+* [Совместимость устройств](docs/ru/DEVICE_COMPATIBILITY.md) — Tulip vs Whyred, проверенные ROM.
+* [Архитектура разделов](docs/ru/PARTITIONS_EXPLAINED.md) — Что такое Retrofit Super, GPT и `liblp`.
+* [Каталог ошибок](docs/ru/ERRORS_AND_SOLUTIONS.md) — Подробный разбор Error 1, bootloop, Error 21.
+* [Ручной способ правки](docs/ru/MANUAL_PATCH_GUIDE.md) — Редактирование в HxD без закрытых скриптов.
+* [Автоматический патчер](docs/ru/AUTOMATIC_PATCH_GUIDE.md) — Использование PowerShell/Python утилит.
+* [Установка в Recovery](docs/ru/RECOVERY_INSTALLATION.md) — Кнопка-за-кнопкой в OrangeFox и TWRP.
+* [Бэкап и откат](docs/ru/BACKUP_AND_RESTORE.md) — Защита IMEI (EFS), откат на стоковую MIUI.
+* [Частые вопросы (FAQ)](docs/ru/FAQ.md) — Ответы на популярные вопросы.
+
+### 🇬🇧 Documentation (English)
+* [Getting Started](docs/en/GETTING_STARTED.md) — Step-by-step guide for beginners.
+* [Device Compatibility](docs/en/DEVICE_COMPATIBILITY.md) — Tulip vs Whyred specs, tested ROMs.
+* [Partition Architecture](docs/en/PARTITIONS_EXPLAINED.md) — Retrofit Super, GPT geometry, `liblp`.
+* [Errors and Solutions](docs/en/ERRORS_AND_SOLUTIONS.md) — Comprehensive Error 1 & bootloop teardown.
+* [Manual Binary Patch](docs/en/MANUAL_PATCH_GUIDE.md) — Direct HxD hex modification instructions.
+* [Automated Patcher](docs/en/AUTOMATIC_PATCH_GUIDE.md) — PowerShell & Python 1-click workflows.
+* [Recovery Installation](docs/en/RECOVERY_INSTALLATION.md) — OrangeFox and TWRP workflows.
+* [Backup and Rollback](docs/en/BACKUP_AND_RESTORE.md) — EFS protection, clean MIUI rollback.
+* [FAQ](docs/en/FAQ.md) — Answers to community questions.
+
+---
+
+## 📁 Repository Structure
 
 ```text
-├── docs/                        # 📚 Подробные инструкции, отчеты и замеры
-│   ├── MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md  # 🛠️ Ручной способ правки cust/hex для новичков
-│   ├── HOWTO_FIX_TULIP_DYNAMIC_ROMS.md
-│   ├── optimization_report.md
-│   ├── android17_baseline.txt
-│   └── android17_optimized.txt
-├── drivers/                     # 🔌 Официальные USB-драйверы Fastboot & ADB
-│   ├── install_drivers.cmd      # ⚡ Установка всех драйверов в 1 клик
-│   ├── xiaomi_usb_driver/       # Драйверы Xiaomi Technology (VID 2717)
-│   ├── google_usb_driver/       # Драйверы Google WinUSB (r13)
+tulip-dynamic-partitions-fix/
+├── docs/
+│   ├── ru/                      # Русскоязычная документация (10 руководств)
+│   ├── en/                      # English documentation (10 guides)
+│   ├── diagrams/                # Схемы архитектуры и Mermaid-диаграммы
+│   └── reference/               # Аппаратные замеры и технические отчеты
+├── drivers/
+│   ├── install_drivers.cmd      # Установщик драйверов Windows в 1 клик
+│   ├── xiaomi_usb_driver/       # Официальные драйверы Xiaomi Technology Inc.
+│   ├── google_usb_driver/       # Официальные драйверы Google WinUSB (r13)
 │   └── README.md                # Руководство по установке драйверов
-├── scripts/                     # ⚙️ Скрипты оптимизации и ПК-утилиты
-│   ├── optimize_android17.ps1
-│   ├── restore_android17.ps1
-│   ├── patch_tulip_dynamic_rom.ps1
-│   ├── patch_tulip_dynamic_rom.py
-│   └── 99-performance-tuning.sh
-├── diagnostics/                 # 📊 Логи и аппаратные дампы телеметрии
-└── README.md                    # 📖 Главное руководство
+├── scripts/
+│   ├── patch_tulip_dynamic_rom.ps1   # PowerShell-обертка с drag-and-drop
+│   ├── patch_tulip_dynamic_rom.py    # Кроссплатформенный бинарный патчер
+│   ├── optimize_android17.ps1        # Скрипт тонкой настройки Android 17
+│   ├── restore_android17.ps1         # Полный откат изменений оптимизации
+│   └── 99-performance-tuning.sh      # Сервисный скрипт для zram и eMMC
+├── diagnostics/                 # 56 аппаратных дампов телеметрии с реального Tulip
+└── README.md                    # Главная страница проекта
 ```
 
 ---
 
-## 🇷🇺 Инструкция на русском
+## 🏷️ Search Keywords / Поисковые запросы
 
-Подробное руководство, как устанавливать **любые динамические прошивки** (Android 15, 16, 17 — Project Infinity-X, EvolutionX, LineageOS и др.) на **Redmi Note 6 Pro (Tulip)** **БЕЗ КОМПЬЮТЕРА (только через телефон)** и как исправить ошибки бутлупа и разметки.
-
----
-
-### 🔥 ГЛАВНЫЙ МЕТОД: КАК ПРОШИТЬ БЕЗ КОМПЬЮТЕРА (ТОЛЬКО ЧЕРЕЗ ТЕЛЕФОН)
-
-Если у вас нет ПК или вы не хотите ничего патчить — весь процесс делается **напрямую в OrangeFox / TWRP** перед установкой прошивки!
-
-#### 🦊 Пошагово в OrangeFox Recovery:
-
-1. **Шаг 1: Подготовка файловой системы к динамическим разделам**
-   * В OrangeFox нажмите иконку **Меню** (три полоски в нижнем правом углу) → **Manage Partitions** (Управление разделами).
-   * Нажмите на раздел **Data** → кнопка **Change FS** (Сменить ФС) → выберите **F2FS** → проведите свайп (**Swipe to Apply**).
-   * Нажмите на раздел **Cache** → кнопка **Change FS** → выберите **F2FS** → проведите свайп.
-   * Нажмите на раздел **Cust** → нажмите **Format / Wipe**.
-
-2. **Шаг 2: Форматирование данных**
-   * Перейдите во вкладку **Wipe (Очистка)** → нажмите кнопку **Format Data**.
-   * Введите слово `yes` и подтвердите.
-
-3. **Шаг 3: Прошивка архива**
-   * Перейдите во вкладку **Files (Файлы)**.
-   * Выберите скачанный оригинальный ZIP архив прошивки (скачанный напрямую на телефон или на MicroSD флешку).
-   * Проведите свайп для установки (**Swipe to Install**).
-   * *Установка пройдёт штатно!*
-
-4. **Шаг 4: Проверка F2FS перед включением**
-   * Снова зайдите в **Manage Partitions** → проверьте, что **Data** остался в **F2FS** (если сбросился в ext4 — ещё раз переключите на F2FS).
-   * Нажмите **Reboot System** (Перезагрузка в систему).  
-   * Система загрузится за 1–2 минуты без бутлупа!
-
----
-
-#### 🔷 Пошагово в TWRP Recovery:
-
-1. Нажмите **Wipe** → **Advanced Wipe**.
-2. Отметьте галочкой **Data** → нажмите **Repair or Change File System** → **Change File System** → **F2FS** → свайп.
-3. Отметьте галочкой **Cache** → **Repair or Change File System** → **Change File System** → **F2FS** → свайп.
-4. Вернитесь в меню **Wipe** → нажмите **Format Data** → напишите `yes`.
-5. Установите архив прошивки через кнопку **Install**.
-6. Перезагрузитесь в систему (**Reboot System**).
-
----
-
-### 🔌 ЕСЛИ ПК НЕ ВИДИТ ТЕЛЕФОН (ДРАЙВЕРЫ FASTBOOT И ADB)
-
-Если при подключении к компьютеру в режиме Fastboot или с включенной отладкой по USB телефон не определяется (или в Диспетчере устройств горит жёлтый треугольник ⚠️):
-* Запустите автоматический установщик в 1 клик:  
-  **`drivers\install_drivers.cmd`** (от имени администратора).
-* Подробная инструкция по ручной установке и решению проблем с AMD Ryzen:  
-  👉 **[drivers/README.md](drivers/README.md)**
-
----
-
-### 💻 АЛЬТЕРНАТИВНЫЙ МЕТОД: ЧЕРЕЗ ПК (ЕСЛИ ВЫЛЕТАЕТ ERROR 1)
-
-Если на телефоне была старая нестандартная переразметка (например, расширение `system` под GSI), рекавери может выдать `Block device cust size is too small (Error 1)`.
-
-* **Автоматически в 1 клик на ПК:**
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
-  ```
-* **Ручной способ своими руками (для тех, кто не доверяет скриптам):**  
-  Если вы хотите сами разобрать архив через 7-Zip, посмотреть байты в HEX-редакторе (HxD) или запустить открытый 15-строчный скрипт — читайте подробнейший иллюстрированный гайд:  
-  👉 **[docs/MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md](docs/MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md)**
-
----
-
-### ⚡ ОПТИМИЗАЦИЯ ПОСЛЕ УСТАНОВКИ (ДЛЯ 4 GB RAM)
-
-После первой загрузки подключите телефон к ПК, включите «Отладку по USB» и запустите:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\optimize_android17.ps1
-```
-* Скрипт отключит 20 фоновых служб-пожирателей памяти.
-* Настроит быстрый ZRAM 2.5 ГБ (LZ4) и планировщик eMMC 5.1 (`mq-deadline`).
-* Скомпилирует ключевые приложения в машинный код (`dex2oat speed`), снижая лаги интерфейса на 62.5%.
-
----
-
-## 🇬🇧 English Guide
-
-Guide on how to install **any Dynamic Partition ROM** (Android 15, 16, 17 — Infinity-X, EvolutionX, LineageOS, etc.) on **Redmi Note 6 Pro (Tulip)** **DIRECTLY ON THE PHONE (WITHOUT PC)** and fix installation/bootloop errors.
-
----
-
-### 🔥 MAIN METHOD: DIRECTLY ON PHONE (NO PC REQUIRED)
-
-You do NOT need a PC or patch script if you configure partitions properly in OrangeFox / TWRP before installing:
-
-#### 🦊 In OrangeFox Recovery:
-1. **Prepare Partitions:**
-   * Tap the **Menu icon** (bottom right) → **Manage Partitions**.
-   * Select **Data** → tap **Change FS** → choose **F2FS** → swipe to apply.
-   * Select **Cache** → tap **Change FS** → choose **F2FS** → swipe to apply.
-   * Select **Cust** → tap **Format / Wipe**.
-2. **Format Data:**
-   * Go to **Wipe** tab → tap **Format Data** → type `yes` to confirm.
-3. **Flash the ROM:**
-   * Go to **Files** tab → select your original unpatched ROM zip → swipe to install.
-4. **Verify & Reboot:**
-   * Go to **Manage Partitions** to ensure **Data** is still **F2FS**.
-   * Tap **Reboot System**. The ROM will boot cleanly!
-
-#### 🔷 In TWRP Recovery:
-1. Tap **Wipe** → **Advanced Wipe**.
-2. Select **Data** → **Repair or Change File System** → **Change File System** → **F2FS** → swipe.
-3. Select **Cache** → **Repair or Change File System** → **Change File System** → **F2FS** → swipe.
-4. Go to **Wipe** → **Format Data** → type `yes`.
-5. Flash the ROM zip via **Install**.
-6. Tap **Reboot System**.
-
----
-
-### 🔌 USB DRIVERS (FASTBOOT & ADB)
-
-If Windows fails to detect the phone in Fastboot or ADB (or displays a yellow exclamation mark ⚠️ in Device Manager):
-* Run the 1-click driver installer as Administrator:  
-  **`drivers\install_drivers.cmd`**
-* Detailed setup guide and AMD Ryzen USB 3.0 fix:  
-  👉 **[drivers/README.md](drivers/README.md)**
-
----
-
-## 🏷️ Теги и ключевые слова для поиска / Search Keywords & Tags
-
-> **Для поисковых систем (Google, Yandex, GitHub Search, 4PDA, XDA):**
-
-### 🔍 Точные тексты ошибок / Exact Error Logs:
 ```text
 - "assert failed: update_dynamic_partitions"
 - "ERROR: 1"
-- "Updater process ended with ERROR: 1"
-- "[liblp] Block device cust size is too small (expected 872415232, got 871366656)"
-- "Signature verification failed / error: 21"
-- "failed to mount /data: Invalid argument"
-- "Bootloop to Recovery / Rescue Party / can't mount data"
-- "fscrypt v2 encryption failure kernel 4.19"
+- "Block device cust size is too small (expected 872415232, got 871366656)"
+- "Tulip bootloop to recovery fix F2FS"
+- "Redmi Note 6 Pro dynamic partitions"
 ```
-
-### 🏷️ Search Tags:
-`#Xiaomi` `#RedmiNote6Pro` `#Tulip` `#Twolip` `#Whyred` `#Bouquet` `#Snapdragon636` `#SDM636` `#DynamicPartitions` `#RetrofitDynamicPartitions` `#SuperPartition` `#unsparse_super_empty` `#super_dummy` `#Error1` `#update_dynamic_partitions` `#F2FS` `#fscrypt` `#BootloopFix` `#OrangeFox` `#TWRP` `#Android15` `#Android16` `#Android17` `#ProjectInfinityX` `#EvolutionX` `#LineageOS` `#crDroid` `#PixelOS` `#MiFlash` `#CustPartition`
-
-### 🇷🇺 Поисковые запросы на русском:
-* *«Ошибка 1 при прошивке Redmi Note 6 Pro в OrangeFox / TWRP»*
-* *«Как исправить update_dynamic_partitions Block device cust size is too small»*
-* *«Почему после прошивки кастома Android 15 / 16 / 17 телефон перезагружается в рекавери»*
-* *«Redmi Note 6 Pro бутлуп рекавери F2FS»*
-* *«Как накатить динамическую прошивку на Tulip без ПК»*
-* *«Разница cust Whyred 872415232 и Tulip 871366656»*
-
