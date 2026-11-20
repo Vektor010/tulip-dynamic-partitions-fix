@@ -93,7 +93,7 @@ foreach ($pkg in $packagesToDebloat) {
             if ($res -match "Success") {
                 Log-Success "Uninstalled for user 0: $pkg"
             } else {
-                Log-Warn "Uninstall result for $pkg: $res"
+                Log-Warn "Uninstall result for $($pkg): $res"
             }
         } else {
             Log-Info "Already removed for user 0: $pkg"
@@ -202,7 +202,7 @@ if (-not $SkipDexopt) {
             if ($compileRes -match "Success") {
                 Log-Success "Compiled: $pkg"
             } else {
-                Log-Warn "Compile status for $pkg: $compileRes"
+                Log-Warn "Compile status for $($pkg): $compileRes"
             }
         }
     }

@@ -88,7 +88,7 @@ foreach ($pkg in $packagesToRestore) {
         if ($check) {
             Log-Info "Already installed: $pkg"
         } else {
-            Log-Warn "Could not restore $pkg: $res"
+            Log-Warn "Could not restore $($pkg): $res"
         }
     }
 }
