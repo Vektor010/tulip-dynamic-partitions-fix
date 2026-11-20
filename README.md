@@ -153,3 +153,33 @@ If Windows fails to detect the phone in Fastboot or ADB (or displays a yellow ex
   **`drivers\install_drivers.cmd`**
 * Detailed setup guide and AMD Ryzen USB 3.0 fix:  
   👉 **[drivers/README.md](drivers/README.md)**
+
+---
+
+## 🏷️ Теги и ключевые слова для поиска / Search Keywords & Tags
+
+> **Для поисковых систем (Google, Yandex, GitHub Search, 4PDA, XDA):**
+
+### 🔍 Точные тексты ошибок / Exact Error Logs:
+```text
+- "assert failed: update_dynamic_partitions"
+- "ERROR: 1"
+- "Updater process ended with ERROR: 1"
+- "[liblp] Block device cust size is too small (expected 872415232, got 871366656)"
+- "Signature verification failed / error: 21"
+- "failed to mount /data: Invalid argument"
+- "Bootloop to Recovery / Rescue Party / can't mount data"
+- "fscrypt v2 encryption failure kernel 4.19"
+```
+
+### 🏷️ Search Tags:
+`#Xiaomi` `#RedmiNote6Pro` `#Tulip` `#Twolip` `#Whyred` `#Bouquet` `#Snapdragon636` `#SDM636` `#DynamicPartitions` `#RetrofitDynamicPartitions` `#SuperPartition` `#unsparse_super_empty` `#super_dummy` `#Error1` `#update_dynamic_partitions` `#F2FS` `#fscrypt` `#BootloopFix` `#OrangeFox` `#TWRP` `#Android15` `#Android16` `#Android17` `#ProjectInfinityX` `#EvolutionX` `#LineageOS` `#crDroid` `#PixelOS` `#MiFlash` `#CustPartition`
+
+### 🇷🇺 Поисковые запросы на русском:
+* *«Ошибка 1 при прошивке Redmi Note 6 Pro в OrangeFox / TWRP»*
+* *«Как исправить update_dynamic_partitions Block device cust size is too small»*
+* *«Почему после прошивки кастома Android 15 / 16 / 17 телефон перезагружается в рекавери»*
+* *«Redmi Note 6 Pro бутлуп рекавери F2FS»*
+* *«Как накатить динамическую прошивку на Tulip без ПК»*
+* *«Разница cust Whyred 872415232 и Tulip 871366656»*
+
