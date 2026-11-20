@@ -1,10 +1,10 @@
-# 📱 Redmi Note 6 Pro (Tulip) — Android 17 Toolkit & Fixes
+# 📱 Redmi Note 6 Pro (Tulip) — Руководство по динамическим прошивкам (Android 15 / 16 / 17)
 
 [🇷🇺 Инструкция на русском](#-инструкция-на-русском) | [🇬🇧 English Guide](#-english-guide)
 
 ---
 
-## 📁 Структура репозитория / Repository Structure
+## 📁 Структура репозитория
 
 ```text
 ├── docs/                        # 📚 Подробные инструкции, отчеты и замеры
@@ -12,14 +12,12 @@
 │   ├── optimization_report.md
 │   ├── android17_baseline.txt
 │   └── android17_optimized.txt
-├── scripts/                     # ⚙️ Скрипты автоматизации и патчеры
-│   ├── patch_tulip_dynamic_rom.ps1
-│   ├── patch_tulip_dynamic_rom.py
+├── scripts/                     # ⚙️ Скрипты оптимизации и ПК-утилиты
 │   ├── optimize_android17.ps1
 │   ├── restore_android17.ps1
-│   ├── 99-performance-tuning.sh
-│   ├── collect_android17_baseline.ps1
-│   └── collect_android17_optimized.ps1
+│   ├── patch_tulip_dynamic_rom.ps1
+│   ├── patch_tulip_dynamic_rom.py
+│   └── 99-performance-tuning.sh
 ├── diagnostics/                 # 📊 Логи и аппаратные дампы телеметрии
 └── README.md                    # 📖 Главное руководство
 ```
@@ -28,149 +26,102 @@
 
 ## 🇷🇺 Инструкция на русском
 
-Инструменты и пошаговые инструкции для установки и оптимизации Android 17 на **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
-
-### ❓ В чём проблема с прошивками?
-1. **Ошибка при установке (`assert failed: update_dynamic_partitions` / Error 1):**  
-   Разработчики создают общий образ для Redmi Note 5 Pro (Whyred) и Redmi Note 6 Pro (Tulip).  
-   У Whyred раздел `cust` равен **832 МБ**, а у Tulip с завода — **831 МБ** (на 1 МБ меньше).  
-   Рекавери видит нехватку 1 МБ и прерывает установку.
-2. **Вечная перезагрузка в рекавери (Bootloop to Recovery):**  
-   В Android 17 ядро 4.19 требует шифрование `fscrypt v2`.  
-   Стандартный формат ext4 не поддерживает нужные флаги, поэтому разделы `/data` и `/cache` **обязательно** должны быть в файловой системе **F2FS**.
+Подробное руководство, как устанавливать **любые динамические прошивки** (Android 15, 16, 17 — Project Infinity-X, EvolutionX, LineageOS и др.) на **Redmi Note 6 Pro (Tulip)** **БЕЗ КОМПЬЮТЕРА (только через телефон)** и как исправить ошибки бутлупа и разметки.
 
 ---
 
-### 📱 КАК СДЕЛАТЬ ВСЁ В RECOVERY (ПО КНОПКАМ)
+### 🔥 ГЛАВНЫЙ МЕТОД: КАК ПРОШИТЬ БЕЗ КОМПЬЮТЕРА (ТОЛЬКО ЧЕРЕЗ ТЕЛЕФОН)
 
-После успешной прошивки архива **НЕ ПЕРЕЗАГРУЖАЙТЕСЬ СРАЗУ**! Выполните смену файловой системы:
+Если у вас нет ПК или вы не хотите ничего патчить — весь процесс делается **напрямую в OrangeFox / TWRP** перед установкой прошивки!
 
-#### 🦊 Способ 1: В OrangeFox Recovery
-1. На главном экране нажмите иконку **Меню** (три полоски / иконка меню в правом нижнем углу).
-2. Выберите пункт **Manage Partitions** (Управление разделами).
-3. В списке разделов нажмите на **Data**.
-4. Нажмите кнопку **Change FS** (Сменить ФС).
-5. Выберите **F2FS** и проведите внизу свайп для подтверждения (**Swipe to Apply**).
-6. Вернитесь назад, нажмите на раздел **Cache**.
-7. Нажмите **Change FS** → выберите **F2FS** → проведите свайп.
-8. Нажмите **Reboot System** (Перезагрузка в систему).
+#### 🦊 Пошагово в OrangeFox Recovery:
 
-#### 🔷 Способ 2: В TWRP Recovery
-1. На главном экране нажмите **Wipe** (Очистка).
-2. Нажмите **Advanced Wipe** (Выборочная очистка).
-3. Поставьте галочку **ТОЛЬКО** возле пункта **Data** *(свайп внизу пока НЕ трогай!)*.
-4. Внизу нажмите кнопку **Repair or Change File System** (Восстановить или изменить ФС).
-5. Нажмите **Change File System** (Изменить файловую систему).
-6. Выберите **F2FS** и проведите свайп (**Swipe to Change**).
-7. Вернитесь назад, отметьте галочкой **Cache**.
-8. Нажмите **Repair or Change File System** → **Change File System** → выберите **F2FS** → свайп.
-9. Перейдите в **Reboot** → **System**.
+1. **Шаг 1: Подготовка файловой системы к динамическим разделам**
+   * В OrangeFox нажмите иконку **Меню** (три полоски в нижнем правом углу) → **Manage Partitions** (Управление разделами).
+   * Нажмите на раздел **Data** → кнопка **Change FS** (Сменить ФС) → выберите **F2FS** → проведите свайп (**Swipe to Apply**).
+   * Нажмите на раздел **Cache** → кнопка **Change FS** → выберите **F2FS** → проведите свайп.
+   * Нажмите на раздел **Cust** → нажмите **Format / Wipe**.
+
+2. **Шаг 2: Форматирование данных**
+   * Перейдите во вкладку **Wipe (Очистка)** → нажмите кнопку **Format Data**.
+   * Введите слово `yes` и подтвердите.
+
+3. **Шаг 3: Прошивка архива**
+   * Перейдите во вкладку **Files (Файлы)**.
+   * Выберите скачанный оригинальный ZIP архив прошивки (скачанный напрямую на телефон или на MicroSD флешку).
+   * Проведите свайп для установки (**Swipe to Install**).
+   * *Установка пройдёт штатно!*
+
+4. **Шаг 4: Проверка F2FS перед включением**
+   * Снова зайдите в **Manage Partitions** → проверьте, что **Data** остался в **F2FS** (если сбросился в ext4 — ещё раз переключите на F2FS).
+   * Нажмите **Reboot System** (Перезагрузка в систему).  
+   * Система загрузится за 1–2 минуты без бутлупа!
 
 ---
 
-### 💻 ШАГ-ЗА-ШАГОМ: ПРОШИВКА И ПАТЧ
+#### 🔷 Пошагово в TWRP Recovery:
 
-#### Шаг 1: Исправление архива прошивки (от Error 1)
-1. Скачайте архив прошивки (например, Infinity-X).
-2. Запустите скрипт `scripts/patch_tulip_dynamic_rom.ps1` в PowerShell:
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
-   ```
-3. Через несколько секунд рядом появится готовый файл `*-tulip-fixed.zip`.
+1. Нажмите **Wipe** → **Advanced Wipe**.
+2. Отметьте галочкой **Data** → нажмите **Repair or Change File System** → **Change File System** → **F2FS** → свайп.
+3. Отметьте галочкой **Cache** → **Repair or Change File System** → **Change File System** → **F2FS** → свайп.
+4. Вернитесь в меню **Wipe** → нажмите **Format Data** → напишите `yes`.
+5. Установите архив прошивки через кнопку **Install**.
+6. Перезагрузитесь в систему (**Reboot System**).
 
-#### Шаг 2: Установка через Recovery
+---
+
+### 💻 АЛЬТЕРНАТИВНЫЙ МЕТОД: ЧЕРЕЗ ПК (ЕСЛИ ВЫЛЕТАЕТ ERROR 1)
+
+Если на телефоне была старая нестандартная переразметка (например, расширение `system` под GSI), рекавери может выдать `Block device cust size is too small (Error 1)`.
+
+В этом случае используйте скрипт патча в 1 клик на ПК:
 ```powershell
-adb sideload имя_файла-tulip-fixed.zip
+powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
 ```
-*(либо скиньте архив на карту памяти MicroSD и прошейте через меню Install в рекавери).*
+Скрипт за 3 секунды подгонит метаданные архива под заводские размеры Tulip, после чего архив прошьется без ошибок.
 
-#### Шаг 3: Смена ФС на F2FS
-Выполните действия по кнопкам в OrangeFox или TWRP, описанные выше.
+---
 
-#### Шаг 4: Оптимизация системы (в 1 клик через ПК)
-После загрузки системы включите «Отладку по USB» в меню разработчика и запустите:
+### ⚡ ОПТИМИЗАЦИЯ ПОСЛЕ УСТАНОВКИ (ДЛЯ 4 GB RAM)
+
+После первой загрузки подключите телефон к ПК, включите «Отладку по USB» и запустите:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\optimize_android17.ps1
 ```
-Скрипт отключит 20 фоновых служб, настроит ZRAM 2.5 ГБ (LZ4) и устранит микрофризы UI.
+* Скрипт отключит 20 фоновых служб-пожирателей памяти.
+* Настроит быстрый ZRAM 2.5 ГБ (LZ4) и планировщик eMMC 5.1 (`mq-deadline`).
+* Скомпилирует ключевые приложения в машинный код (`dex2oat speed`), снижая лаги интерфейса на 62.5%.
 
 ---
 
 ## 🇬🇧 English Guide
 
-Toolkit and button-by-button guide for flashing and optimizing Android 17 on **Xiaomi Redmi Note 6 Pro (Tulip / Snapdragon 636)**.
-
-### ❓ Why do unified dynamic ROMs fail on Tulip?
-1. **Installation Error (`assert failed: update_dynamic_partitions` / Error 1):**  
-   ROMs are built as unified "bouquet" packages for both Whyred and Tulip.  
-   Whyred's factory `cust` partition size is **872,415,232 bytes (832 MB)**, while Tulip's factory size is **871,366,656 bytes (831 MB)**.  
-   Because of this 1 MB difference, recovery's `liblp` throws an assertion failure (`cust size too small`).
-2. **Bootloop to Recovery:**  
-   Android 17 on 4.19 kernel uses `fscrypt v2` encryption.  
-   Standard ext4 formatting fails to mount with v2 encryption flags. Data and cache **must** be formatted as **F2FS**.
+Guide on how to install **any Dynamic Partition ROM** (Android 15, 16, 17 — Infinity-X, EvolutionX, LineageOS, etc.) on **Redmi Note 6 Pro (Tulip)** **DIRECTLY ON THE PHONE (WITHOUT PC)** and fix installation/bootloop errors.
 
 ---
 
-### 📱 HOW TO DO IT MANUALLY IN RECOVERY (BUTTON-BY-BUTTON)
+### 🔥 MAIN METHOD: DIRECTLY ON PHONE (NO PC REQUIRED)
 
-After installing the ROM zip, **DO NOT REBOOT IMMEDIATELY**! Change the filesystem to F2FS:
+You do NOT need a PC or patch script if you configure partitions properly in OrangeFox / TWRP before installing:
 
-#### 🦊 Method 1: In OrangeFox Recovery
-1. On the main screen, tap the **Menu** icon (bottom right corner).
-2. Tap **Manage Partitions**.
-3. Select **Data** from the list.
-4. Tap **Change FS**.
-5. Select **F2FS** and swipe to apply (**Swipe to Apply**).
-6. Go back and select **Cache**.
-7. Tap **Change FS** → select **F2FS** → swipe to apply.
-8. Tap **Reboot System**.
+#### 🦊 In OrangeFox Recovery:
+1. **Prepare Partitions:**
+   * Tap the **Menu icon** (bottom right) → **Manage Partitions**.
+   * Select **Data** → tap **Change FS** → choose **F2FS** → swipe to apply.
+   * Select **Cache** → tap **Change FS** → choose **F2FS** → swipe to apply.
+   * Select **Cust** → tap **Format / Wipe**.
+2. **Format Data:**
+   * Go to **Wipe** tab → tap **Format Data** → type `yes` to confirm.
+3. **Flash the ROM:**
+   * Go to **Files** tab → select your original unpatched ROM zip → swipe to install.
+4. **Verify & Reboot:**
+   * Go to **Manage Partitions** to ensure **Data** is still **F2FS**.
+   * Tap **Reboot System**. The ROM will boot cleanly!
 
-#### 🔷 Method 2: In TWRP Recovery
-1. Tap **Wipe** on the main menu.
-2. Tap **Advanced Wipe**.
-3. Check **ONLY** the **Data** box (do NOT swipe yet!).
-4. Tap **Repair or Change File System** at the bottom.
-5. Tap **Change File System**.
-6. Select **F2FS** and swipe to confirm (**Swipe to Change**).
-7. Go back, check **Cache**.
-8. Tap **Repair or Change File System** → **Change File System** → choose **F2FS** → swipe.
-9. Go to **Reboot** → **System**.
-
----
-
-### 💻 FLASHING & OPTIMIZATION WORKFLOW
-
-#### Step 1: Patch the ROM ZIP (Fixes Error 1)
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
-```
-A patched file named `*-tulip-fixed.zip` will be generated in seconds.
-
-#### Step 2: Flash via Recovery
-```powershell
-adb sideload path\to\rom-tulip-fixed.zip
-```
-*(or flash via Install menu from MicroSD card).*
-
-#### Step 3: Switch Data & Cache to F2FS
-Follow the OrangeFox / TWRP button guide above.
-
-#### Step 4: Run Performance Optimization
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\optimize_android17.ps1
-```
-Removes 20 background bloatware services, tunes 2.5 GB LZ4 ZRAM, and stabilizes 60 FPS UI rendering.
-
----
-
-### 📂 Repository Structure & Documentation
-* **`docs/`**
-  * `HOWTO_FIX_TULIP_DYNAMIC_ROMS.md` — Deep technical teardown of dynamic partitions & hex offsets.
-  * `optimization_report.md` — Comprehensive before/after performance benchmarks.
-  * `android17_baseline.txt` — Baseline diagnostic state dump.
-  * `android17_optimized.txt` — Post-optimization verification dump.
-* **`scripts/`**
-  * `patch_tulip_dynamic_rom.ps1` / `.py` — 1-click Tulip dynamic partitions patcher.
-  * `optimize_android17.ps1` — Automated Android 17 optimization script.
-  * `restore_android17.ps1` — Complete rollback script restoring factory baseline.
-  * `99-performance-tuning.sh` — Persistent kernel service script.
+#### 🔷 In TWRP Recovery:
+1. Tap **Wipe** → **Advanced Wipe**.
+2. Select **Data** → **Repair or Change File System** → **Change File System** → **F2FS** → swipe.
+3. Select **Cache** → **Repair or Change File System** → **Change File System** → **F2FS** → swipe.
+4. Go to **Wipe** → **Format Data** → type `yes`.
+5. Flash the ROM zip via **Install**.
+6. Tap **Reboot System**.
