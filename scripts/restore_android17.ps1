@@ -142,7 +142,7 @@ if [ -e /sys/block/mmcblk0/queue/scheduler ]; then
 fi
 "@
 
-$tmpRestoreScript = "C:\Users\User\Documents\redmi\tmp_restore.sh"
+$tmpRestoreScript = Join-Path $PSScriptRoot "tmp_restore.sh"
 [System.IO.File]::WriteAllText($tmpRestoreScript, $stockRestoreScript.Replace("`r`n", "`n"), [System.Text.Encoding]::ASCII)
 adb push $tmpRestoreScript /data/local/tmp/restore_stock.sh > $null
 Invoke-Adb "sh /data/local/tmp/restore_stock.sh"

@@ -1,5 +1,6 @@
-# Collect comprehensive Android 17 optimized diagnostics
-$outDir = "C:\Users\User\Documents\redmi\diagnostics\android17_optimized"
+# Collect comprehensive Android 17 baseline diagnostics
+$repoRoot = Split-Path $PSScriptRoot -Parent
+$outDir = Join-Path $repoRoot "diagnostics\android17_audit"
 if (-not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir -Force | Out-Null }
 
 Write-Host "[*] Checking ADB connection and root..."
@@ -19,28 +20,31 @@ adb shell "pm list packages -d" > "$outDir\01_packages_disabled.txt"
 
 Write-Host "[*] 2/9 Collecting processes and meminfo..."
 adb shell "ps -efZ" > "$outDir\02_ps_efZ.txt"
-adb shell "dumpsys -t 120 meminfo -a" > "$outDir\02_dumpsys_meminfo.txt"
+adb shell "dumpsys meminfo -a" > "$outDir\02_dumpsys_meminfo.txt"
 adb shell "cat /proc/meminfo; echo '--- SWAPS ---'; cat /proc/swaps; echo '--- ZRAM MM_STAT ---'; cat /sys/block/zram0/mm_stat; echo '--- ZRAM STAT ---'; cat /sys/block/zram0/stat" > "$outDir\02_proc_meminfo.txt"
 
 Write-Host "[*] 3/9 Collecting pressure and LMKD..."
 adb shell "echo '=== PSI MEMORY ==='; cat /proc/pressure/memory; echo '=== PSI CPU ==='; cat /proc/pressure/cpu; echo '=== PSI IO ==='; cat /proc/pressure/io; echo '=== VMSTAT ==='; cat /proc/vmstat; echo '=== ZONEINFO ==='; cat /proc/zoneinfo" > "$outDir\03_pressure_and_zones.txt"
-adb shell "dumpsys -t 120 meminfo --oom" > "$outDir\03_dumpsys_oom.txt"
+adb shell "dumpsys meminfo --oom" > "$outDir\03_dumpsys_oom.txt"
 
 Write-Host "[*] 4/9 Collecting CPU and thermals..."
-adb shell "dumpsys -t 30 cpuinfo" > "$outDir\04_dumpsys_cpuinfo.txt"
+adb shell "dumpsys cpuinfo" > "$outDir\04_dumpsys_cpuinfo.txt"
 adb shell "dumpsys thermalservice" > "$outDir\04_dumpsys_thermals.txt"
 adb shell "
 echo '=== CPU FREQUENCIES ==='
 for i in 0 1 2 3 4 5 6 7; do
-    echo cpu\$i cur: \$(cat /sys/devices/system/cpu/cpu\$i/cpufreq/scaling_cur_freq 2>/dev/null) gov: \$(cat /sys/devices/system/cpu/cpu\$i/cpufreq/scaling_governor 2>/dev/null)
+    echo -n \"cpu\$i cur: \"
+    cat /sys/devices/system/cpu/cpu\$i/cpufreq/scaling_cur_freq 2>/dev/null
+    echo -n \"cpu\$i gov: \"
+    cat /sys/devices/system/cpu/cpu\$i/cpufreq/scaling_governor 2>/dev/null
 done
 echo '=== SCHEDUTIL TUNABLES ==='
 cat /sys/devices/system/cpu/cpufreq/policy0/schedutil/* 2>/dev/null
 cat /sys/devices/system/cpu/cpufreq/policy4/schedutil/* 2>/dev/null
 echo '=== THERMAL ZONES ==='
 for tz in /sys/class/thermal/thermal_zone*; do
-    if [ -f \"`$tz/type\" ]; then
-        echo \"`$(cat `$tz/type): `$(cat `$tz/temp 2>/dev/null)\"
+    if [ -f \"\$tz/type\" ]; then
+        echo \"\$(cat \$tz/type): \$(cat \$tz/temp 2>/dev/null)\"
     fi
 done
 " > "$outDir\04_cpu_and_thermal_details.txt"
@@ -80,11 +84,11 @@ adb shell "logcat -d -b crash -t 150" > "$outDir\09_logcat_crash.txt"
 adb shell "logcat -d -b system -t 300 *:W" > "$outDir\09_logcat_system_warn.txt"
 adb shell "dmesg | tail -n 250" > "$outDir\09_dmesg_tail.txt"
 
-Write-Host "[*] Aggregating core metrics into android17_optimized.txt..."
-$optimizedFile = "C:\Users\User\Documents\redmi\android17_optimized.txt"
+Write-Host "[*] Aggregating core metrics into android17_baseline.txt..."
+$baselineFile = Join-Path $repoRoot "docs\android17_baseline.txt"
 $summary = @()
 $summary += "================================================================================"
-$summary += "REDMI NOTE 6 PRO (TULIP) - ANDROID 17 OPTIMIZED DIAGNOSTIC AUDIT"
+$summary += "REDMI NOTE 6 PRO (TULIP) - ANDROID 17 BASELINE DIAGNOSTIC AUDIT"
 $summary += "Date: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 $summary += "OS: Android 17 (Project Infinity-X 4.2 bouquet)"
 $summary += "Kernel: $(adb shell 'uname -a')"
@@ -127,10 +131,10 @@ $summary += "mmcblk0 scheduler: $(adb shell 'cat /sys/block/mmcblk0/queue/schedu
 $summary += "mmcblk0 read_ahead_kb: $(adb shell 'cat /sys/block/mmcblk0/queue/read_ahead_kb 2>/dev/null')"
 $summary += ""
 $summary += "--- 6. TOP 25 RAM CONSUMERS (PSS) ---"
-$summary += (adb shell "dumpsys -t 30 meminfo | head -n 45")
+$summary += (adb shell "dumpsys meminfo | head -n 45")
 $summary += ""
 $summary += "--- 7. CPU UTILIZATION ---"
-$summary += (adb shell "dumpsys -t 30 cpuinfo | head -n 35")
+$summary += (adb shell "dumpsys cpuinfo | head -n 35")
 $summary += ""
 $summary += "--- 8. GRAPHICS & FRAME PACING ---"
 $summary += "SystemUI 50th/90th/95th GPU percentile:"
@@ -142,5 +146,5 @@ $summary += "--- 9. BATTERY & THERMALS ---"
 $summary += (adb shell "dumpsys battery")
 $summary += "================================================================================"
 
-$summary | Set-Content -Path $optimizedFile -Encoding UTF8
-Write-Host "[+] Stage 5 Verification Complete! Saved to: $optimizedFile"
+$summary | Set-Content -Path $baselineFile -Encoding UTF8
+Write-Host "[+] Stage 1 Audit Complete! Saved to: $baselineFile"

@@ -171,7 +171,7 @@ done
 "@
 
 # Write directly to Magisk/KernelSU service.d
-$tmpScript = "C:\Users\User\Documents\redmi\99-performance-tuning.sh"
+$tmpScript = Join-Path $PSScriptRoot "99-performance-tuning.sh"
 [System.IO.File]::WriteAllText($tmpScript, $serviceScript.Replace("`r`n", "`n"), [System.Text.Encoding]::ASCII)
 adb push $tmpScript /data/adb/service.d/99-performance-tuning.sh > $null
 Invoke-Adb "chmod 755 /data/adb/service.d/99-performance-tuning.sh"

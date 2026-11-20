@@ -26,7 +26,7 @@ if (-not (Test-Path $RomZip)) {
     exit 1
 }
 
-$pyScript = "C:\Users\User\Documents\redmi\patch_tulip_dynamic_rom.py"
+$pyScript = Join-Path $PSScriptRoot "patch_tulip_dynamic_rom.py"
 if (-not (Test-Path $pyScript)) {
     Write-Error "Patcher script missing: $pyScript"
     exit 1

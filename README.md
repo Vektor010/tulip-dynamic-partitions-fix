@@ -1,6 +1,28 @@
-# Redmi Note 6 Pro (Tulip) — Android 17 Toolkit & Fixes
+# 📱 Redmi Note 6 Pro (Tulip) — Android 17 Toolkit & Fixes
 
 [🇷🇺 Инструкция на русском](#-инструкция-на-русском) | [🇬🇧 English Guide](#-english-guide)
+
+---
+
+## 📁 Структура репозитория / Repository Structure
+
+```text
+├── docs/                        # 📚 Подробные инструкции, отчеты и замеры
+│   ├── HOWTO_FIX_TULIP_DYNAMIC_ROMS.md
+│   ├── optimization_report.md
+│   ├── android17_baseline.txt
+│   └── android17_optimized.txt
+├── scripts/                     # ⚙️ Скрипты автоматизации и патчеры
+│   ├── patch_tulip_dynamic_rom.ps1
+│   ├── patch_tulip_dynamic_rom.py
+│   ├── optimize_android17.ps1
+│   ├── restore_android17.ps1
+│   ├── 99-performance-tuning.sh
+│   ├── collect_android17_baseline.ps1
+│   └── collect_android17_optimized.ps1
+├── diagnostics/                 # 📊 Логи и аппаратные дампы телеметрии
+└── README.md                    # 📖 Главное руководство
+```
 
 ---
 
@@ -19,7 +41,7 @@
 
 ---
 
-### 📱 КАК СДЕЛАТЬ ВСЁ САМОМУ В RECOVERY (ПО КНОПКАМ)
+### 📱 КАК СДЕЛАТЬ ВСЁ В RECOVERY (ПО КНОПКАМ)
 
 После успешной прошивки архива **НЕ ПЕРЕЗАГРУЖАЙТЕСЬ СРАЗУ**! Выполните смену файловой системы:
 
@@ -36,7 +58,7 @@
 #### 🔷 Способ 2: В TWRP Recovery
 1. На главном экране нажмите **Wipe** (Очистка).
 2. Нажмите **Advanced Wipe** (Выборочная очистка).
-3. Поставьте галочку **ТОЛЬКО** напротив пункта **Data** (не проводите свайп очистки!).
+3. Поставьте галочку **ТОЛЬКО** возле пункта **Data** *(свайп внизу пока НЕ трогай!)*.
 4. Внизу нажмите кнопку **Repair or Change File System** (Восстановить или изменить ФС).
 5. Нажмите **Change File System** (Изменить файловую систему).
 6. Выберите **F2FS** и проведите свайп (**Swipe to Change**).
@@ -50,9 +72,9 @@
 
 #### Шаг 1: Исправление архива прошивки (от Error 1)
 1. Скачайте архив прошивки (например, Infinity-X).
-2. Запустите скрипт `patch_tulip_dynamic_rom.ps1` в PowerShell:
+2. Запустите скрипт `scripts/patch_tulip_dynamic_rom.ps1` в PowerShell:
    ```powershell
-   powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
+   powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
    ```
 3. Через несколько секунд рядом появится готовый файл `*-tulip-fixed.zip`.
 
@@ -68,7 +90,7 @@ adb sideload имя_файла-tulip-fixed.zip
 #### Шаг 4: Оптимизация системы (в 1 клик через ПК)
 После загрузки системы включите «Отладку по USB» в меню разработчика и запустите:
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\optimize_android17.ps1
 ```
 Скрипт отключит 20 фоновых служб, настроит ZRAM 2.5 ГБ (LZ4) и устранит микрофризы UI.
 
@@ -120,7 +142,7 @@ After installing the ROM zip, **DO NOT REBOOT IMMEDIATELY**! Change the filesyst
 
 #### Step 1: Patch the ROM ZIP (Fixes Error 1)
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
+powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "path\to\rom.zip"
 ```
 A patched file named `*-tulip-fixed.zip` will be generated in seconds.
 
@@ -135,6 +157,20 @@ Follow the OrangeFox / TWRP button guide above.
 
 #### Step 4: Run Performance Optimization
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\optimize_android17.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\optimize_android17.ps1
 ```
 Removes 20 background bloatware services, tunes 2.5 GB LZ4 ZRAM, and stabilizes 60 FPS UI rendering.
+
+---
+
+### 📂 Repository Structure & Documentation
+* **`docs/`**
+  * `HOWTO_FIX_TULIP_DYNAMIC_ROMS.md` — Deep technical teardown of dynamic partitions & hex offsets.
+  * `optimization_report.md` — Comprehensive before/after performance benchmarks.
+  * `android17_baseline.txt` — Baseline diagnostic state dump.
+  * `android17_optimized.txt` — Post-optimization verification dump.
+* **`scripts/`**
+  * `patch_tulip_dynamic_rom.ps1` / `.py` — 1-click Tulip dynamic partitions patcher.
+  * `optimize_android17.ps1` — Automated Android 17 optimization script.
+  * `restore_android17.ps1` — Complete rollback script restoring factory baseline.
+  * `99-performance-tuning.sh` — Persistent kernel service script.
