@@ -8,6 +8,7 @@
 
 ```text
 ├── docs/                        # 📚 Подробные инструкции, отчеты и замеры
+│   ├── MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md  # 🛠️ Ручной способ правки cust/hex для новичков
 │   ├── HOWTO_FIX_TULIP_DYNAMIC_ROMS.md
 │   ├── optimization_report.md
 │   ├── android17_baseline.txt
@@ -74,11 +75,13 @@
 
 Если на телефоне была старая нестандартная переразметка (например, расширение `system` под GSI), рекавери может выдать `Block device cust size is too small (Error 1)`.
 
-В этом случае используйте скрипт патча в 1 клик на ПК:
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
-```
-Скрипт за 3 секунды подгонит метаданные архива под заводские размеры Tulip, после чего архив прошьется без ошибок.
+* **Автоматически в 1 клик на ПК:**
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File .\scripts\patch_tulip_dynamic_rom.ps1 -RomZip "путь_к_прошивке.zip"
+  ```
+* **Ручной способ своими руками (для тех, кто не доверяет скриптам):**  
+  Если вы хотите сами разобрать архив через 7-Zip, посмотреть байты в HEX-редакторе (HxD) или запустить открытый 15-строчный скрипт — читайте подробнейший иллюстрированный гайд:  
+  👉 **[docs/MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md](docs/MANUAL_CUST_AND_DYNAMIC_FIX_GUIDE.md)**
 
 ---
 
