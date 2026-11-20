@@ -1,0 +1,83 @@
+=== CMDLINE ===
+ramoops_memreserve=4M rcupdate.rcu_normal_after_boot=1 quiet noirqdebug kpti=0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 loop.max_part=7 androidboot.init_fatal_reboot_target=recovery printk.devkmsg=on kpti=off usbcore.autosuspend=7 buildvariant=user androidboot.wiredbtnaltmode=0 root=/dev/dm-0 dm="system none ro,0 1 android-verity /dev/mmcblk0p61" androidboot.verifiedbootstate=green androidboot.keymaster=1  androidboot.veritymode=enforcing androidboot.bootdevice=c0c4000.sdhci androidboot.serialno=6357460b androidboot.cpuid=0x9d6bfa36 androidboot.baseband=sdm mdss_mdp.panel=1:dsi:0:qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi androidboot.fpsensor=gdx androidboot.secureboot=1 androidboot.hwc=Global androidboot.hwversion=4.20.0 androidboot.hwlevel=0 androidboot.hwdevice=tulip
+
+=== SWAPS ===
+Filename				Type		Size	Used	Priority
+/dev/block/zram0                        partition	2824052	6904	-1
+
+=== ZRAM SYSFS ===
+disksize: 2891833344
+comp_algorithm: lzo [lz4] deflate 
+mm_stat:  7073792  2387799  2842624        0  2842624      345        0      351
+max_comp_streams: 8
+
+=== VM TUNABLES ===
+swappiness: 80
+vfs_cache_pressure: 50
+dirty_ratio: 0
+dirty_background_ratio: 0
+page-cluster: 0
+extra_free_kbytes: 28856
+min_free_kbytes: 7716
+
+=== EMMC HEALTH & CID ===
+cid: 90014a68433861503e036357460ba500
+csd: d02700328f5903ffffffffef8e400000
+date: 10/2018
+erase_size: 524288
+fwrev: 0x3030303400000000
+hwrev: 0x0
+manfid: 0x000090
+name: hC8aP>
+oemid: 0x014a
+prv: 0x3
+type: MMC
+life_time: 0x00 0x01
+pre_eol_info: 01
+rev: 0x8
+
+=== BLOCK SCHEDULERS ===
+/sys/block/mmcblk0: noop deadline cfq bfq [fiops] sio 
+/sys/block/mmcblk0 read_ahead_kb: 1024
+/sys/block/zram0: none
+/sys/block/zram0 read_ahead_kb: 512
+
+=== MAGISK MODULES ===
+total 6
+drwx------ 2 root root 3488 1977-07-03 13:24 .
+drwx------ 8 root root 3488 1977-07-03 13:24 ..
+
+=== TOUCH & DISPLAY PANEL ===
+[    0.340878] mdss_mdp_probe+0x26c/0x7b8->msm_dss_ioremap_byname: 'vbif_nrt_phys' msm_dss_get_res_byname failed
+[    0.341403] mdss_mdp_irq_clk_setup: unable to get core gdsc regulator
+[    0.343513] mdss_mdp_pipe_addr_setup: type:0 ftchid:-1 xinid:0 num:0 rect:0 ndx:0x1 prio:0
+[    0.343517] mdss_mdp_pipe_addr_setup: type:0 ftchid:-1 xinid:4 num:1 rect:0 ndx:0x2 prio:1
+[    0.343545] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:1 num:6 rect:0 ndx:0x40 prio:2
+[    0.343549] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:1 num:6 rect:1 ndx:0x40 prio:2
+[    0.343551] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:5 num:7 rect:0 ndx:0x80 prio:3
+[    0.343557] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:5 num:7 rect:1 ndx:0x80 prio:3
+[    0.343559] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:9 num:12 rect:0 ndx:0x1000 prio:4
+[    0.343565] mdss_mdp_pipe_addr_setup: type:2 ftchid:-1 xinid:9 num:12 rect:1 ndx:0x1000 prio:4
+[    0.343578] mdss_mdp_pipe_addr_setup: type:3 ftchid:-1 xinid:2 num:10 rect:0 ndx:0x400 prio:0
+[    0.344009] iommu: Adding device c900000.qcom,mdss_mdp:qcom,smmu_mdp_unsec_cb to group 6
+[    0.344200] iommu: Adding device c900000.qcom,mdss_mdp:qcom,smmu_mdp_sec_cb to group 7
+[    0.344302] mdss_mdp_probe: mdss version = 0x30020000, bootloader display is on, num 1, intf_sel=0x00000100
+[    0.345722] mdss_smmu_probe: iommu v2 domain[0] mapping and clk register successful!
+[    0.345905] mdss_smmu_probe: iommu v2 domain[2] mapping and clk register successful!
+[    0.348528] mdss_dsi_ctrl_probe: DSI Ctrl name = MDSS DSI CTRL->0
+[    0.348888] mdss_dsi_find_panel_of_node: cmdline:0:qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi panel_name:qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video
+[    0.348964] mdss_dsi_panel_init: Panel Name = shenchao nt36672a fhdplus video mode dsi panel
+[    0.349043] mdss_dsi_parse_split_link_settings: enable 0 sublinks-count 0 lanes per sublink 0
+[    0.349067] mdss_dsi_panel_timing_from_dt: found new timing "qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video" (fffffff9abaf1400)
+[    0.349081] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-post-panel-on-command
+[    0.349095] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-timing-switch-command
+[    0.349100] mdss_dsi_panel_get_dsc_cfg_np: cannot find dsc config node:config0
+[    0.349221] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-cabc-movie-on-command
+[    0.349230] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-cabc-still-on-command
+[    0.349237] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-hbm-off-command
+[    0.349243] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-hbm1-on-command
+[    0.349251] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-hbm2-on-command
+[    0.349257] mdss_dsi_parse_dcs_cmds: failed, key=qcom,mdss-dsi-hbm3-on-command
+
+=== RECOVERY LOG / PARTITION ===
+lrwxrwxrwx 1 root root 21 1978-01-02 07:28 /dev/block/bootdevice/by-name/recovery -> /dev/block/mmcblk0p59

@@ -1,0 +1,8 @@
+# Temporary directories and archives
+zip_extracted/
+zip_staging/
+usb_driver.zip
+_tulip_patch_tmp/
+*.tmp
+__pycache__/
+*.pyc

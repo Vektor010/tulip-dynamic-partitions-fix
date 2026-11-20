@@ -1,0 +1,4 @@
+﻿package:com.franco.kernel
+package:com.google.android.contactkeys
+package:com.topjohnwu.magisk
+package:app.lawnchair

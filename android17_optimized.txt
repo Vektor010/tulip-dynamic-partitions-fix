@@ -1,0 +1,163 @@
+﻿================================================================================
+REDMI NOTE 6 PRO (TULIP) - ANDROID 17 OPTIMIZED DIAGNOSTIC AUDIT
+Date: 2026-11-20 20:25:34
+OS: Android 17 (Project Infinity-X 4.2 bouquet)
+Kernel: Linux localhost 4.19.325-cip136-st20-SouthWest-NG-0.23.0 #1 SMP PREEMPT Fri Nov 20 09:18:32 UTC 2026 aarch64 Toybox
+SELinux: Enforcing
+ADB UID: uid=0(root) gid=0(root) groups=0(root),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),1078(ext_data_rw),1079(ext_obb_rw),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid),3012(readtracefs) context=u:r:ksu:s0
+================================================================================
+
+--- 1. SYSTEM IDENTITY ---
+ro.product.model: Redmi Note 6 Pro
+ro.product.device: tulip
+ro.build.display.id: CP2A.260605.016 release-keys
+ro.build.date: Fri Nov 20 05:21:51 UTC 2026
+
+--- 2. MEMORY AND ZRAM METRICS ---
+		total        used        free      shared     buffers
+Mem:             3659        3420         238          10          14
+-/+ buffers/cache:           3406         253
+Swap:               0           0           0
+
+ZRAM mm_stat (orig_data_size, compr_data_size, mem_used_total, zero_pages, max_used):
+    4096       64     4096        0     4096        0        0        0        0        0
+ZRAM comp_algorithm: lzo lzo-rle [lz4] zstd 
+ZRAM disksize: 2684354560
+
+--- 3. VIRTUAL MEMORY (VM) TUNABLES ---
+vm.swappiness: 100
+vm.vfs_cache_pressure: 100
+vm.page-cluster: 0
+vm.dirty_ratio: 10
+vm.dirty_background_ratio: 5
+vm.stat_interval: 20
+
+--- 4. PRESSURE STALL INFORMATION (PSI) ---
+Memory Pressure:
+some avg10=0.00 avg60=0.00 avg300=0.00 total=138884
+full avg10=0.00 avg60=0.00 avg300=0.00 total=42698
+CPU Pressure:
+some avg10=2.06 avg60=0.77 avg300=1.26 total=11402909
+IO Pressure:
+some avg10=0.33 avg60=0.13 avg300=0.27 total=3307490
+full avg10=0.33 avg60=0.13 avg300=0.18 total=2275430
+
+--- 5. STORAGE I/O METRICS ---
+mmcblk0 scheduler: [mq-deadline] kyber bfq none
+mmcblk0 read_ahead_kb: 512
+
+--- 6. TOP 25 RAM CONSUMERS (PSS) ---
+Applications Memory Usage (in Kilobytes):
+Uptime: 384317 Realtime: 384317
+
+
+Total RSS by process:
+    668,328K: system (pid 1691)
+    473,124K: surfaceflinger (pid 1053)
+    363,644K: com.android.systemui (pid 2449)
+    281,828K: com.android.launcher3 (pid 2814 / activities)
+    210,656K: zygote64 (pid 905)
+    180,664K: zygote (pid 906)
+    167,536K: com.android.phone (pid 2653)
+    151,776K: com.android.permissioncontroller (pid 2831)
+    150,172K: com.android.inputmethod.latin (pid 3597)
+    149,544K: com.android.providers.media.module (pid 3309)
+    130,372K: android.process.acore (pid 3066)
+    129,516K: org.codeaurora.ims (pid 2625)
+    124,348K: com.android.networkstack.process (pid 2600)
+    123,476K: android.ext.services (pid 3127)
+    121,928K: com.android.devicelockcontroller (pid 3150)
+    120,532K: android.process.media (pid 3371)
+    119,820K: org.lineageos.settings.device (pid 3520)
+    119,496K: org.lineageos.settings (pid 3288)
+    118,916K: com.android.statementservice (pid 3338)
+    117,796K: com.android.keychain (pid 3324)
+    117,660K: .qtidataservices (pid 2647)
+    117,604K: com.android.providers.calendar (pid 3653)
+    117,172K: org.lineageos.settings.doze (pid 2609)
+    116,856K: com.qti.phone (pid 2598)
+    116,440K: org.lineageos.lineageparts (pid 3476)
+    115,548K: com.android.imsserviceentitlement (pid 3415)
+    115,008K: com.android.photopicker (pid 3692)
+    114,356K: .dataservices (pid 2596)
+    113,736K: com.android.carrierconfig (pid 3049)
+    112,676K: com.android.packageinstaller (pid 3640)
+    112,520K: com.android.externalstorage (pid 3705)
+    112,236K: com.android.smspush (pid 2903)
+    112,144K: com.android.shell (pid 3668)
+    112,024K: com.android.dynsystem:dynsystem (pid 3599)
+    111,740K: com.android.localtransport (pid 3679)
+    111,740K: com.libremobileos.freeform (pid 3270)
+    110,788K: org.protonaosp.deviceconfig (pid 3213)
+    110,580K: com.android.dynsystem (pid 3569)
+    110,408K: org.lineageos.settingsconfig (pid 3189)
+     73,672K: android.hardware.camera.provider-service_32.lineage (pid 975)
+
+--- 7. CPU UTILIZATION ---
+
+--- 8. GRAPHICS & FRAME PACING ---
+SystemUI 50th/90th/95th GPU percentile:
+Total frames rendered: 574
+Janky frames: 116 (20.21%)
+Janky frames (legacy): 314 (54.70%)
+50th percentile: 20ms
+90th percentile: 53ms
+95th percentile: 85ms
+99th percentile: 600ms
+Number Missed Vsync: 36
+Number High input latency: 698
+Number Slow UI thread: 105
+Number Slow bitmap uploads: 0
+Number Slow issue draw commands: 37
+Number Frame deadline missed: 116
+Number Frame deadline missed (legacy): 128
+50th gpu percentile: 4ms
+90th gpu percentile: 9ms
+95th gpu percentile: 13ms
+99th gpu percentile: 24ms
+Launcher3 50th/90th/95th GPU percentile:
+Total frames rendered: 1352
+Janky frames: 36 (2.66%)
+Janky frames (legacy): 145 (10.72%)
+50th percentile: 13ms
+90th percentile: 21ms
+95th percentile: 26ms
+99th percentile: 69ms
+Number Missed Vsync: 11
+Number High input latency: 1336
+Number Slow UI thread: 19
+Number Slow bitmap uploads: 0
+Number Slow issue draw commands: 24
+Number Frame deadline missed: 36
+Number Frame deadline missed (legacy): 34
+50th gpu percentile: 4ms
+90th gpu percentile: 8ms
+95th gpu percentile: 11ms
+99th gpu percentile: 18ms
+
+--- 9. BATTERY & THERMALS ---
+Current Battery Service state:
+  AC powered: true
+  USB powered: false
+  Wireless powered: false
+  Dock powered: false
+  Max charging current: 267577
+ Time when the latest updated value of the Max charging current was sent via battery changed broadcast: +6m11s712ms
+  Max charging voltage: 4146717
+  Charge counter: 0
+  status: 2
+  health: 2
+  present: true
+  level: 88
+  scale: 100
+  voltage: 4146
+ Time when the latest updated value of the voltage was sent via battery changed broadcast: +6m11s712ms
+ The last voltage value sent via the battery changed broadcast: 4146
+  temperature: 380
+  technology: Li-poly
+  Charging state: 0
+  Charging policy: 0
+  Capacity level: -1
+  Maximum capacity: 0
+  Design capacity: 4000
+================================================================================

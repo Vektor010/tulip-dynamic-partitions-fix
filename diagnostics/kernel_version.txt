@@ -1,0 +1,2 @@
+﻿Linux localhost 4.4.302-SuperRyzen-OSS_LA.UM.8.2.r2-06800-sdm660.0_v10-OC #1 SMP PREEMPT Wed Mar 29 17:13:24 WIB 2023 aarch64 Toybox
+Linux version 4.4.302-SuperRyzen-OSS_LA.UM.8.2.r2-06800-sdm660.0_v10-OC (Tiann@MobZ) (Azure clang version 15.0.0 (https://github.com/llvm/llvm-project 36c36c1ee3b01b2d4a9e7ee12c9c23a98659e0fb) - GNU ld (GNU Binutils) 2.37 - LLD 15.0.0 (compatible with GNU linkers)) #1 SMP PREEMPT Wed Mar 29 17:13:24 WIB 2023

@@ -1,0 +1,3 @@
+﻿List of devices attached
+6357460b               device product:superior_tulip model:Redmi_Note_6_Pro device:tulip transport_id:1
+

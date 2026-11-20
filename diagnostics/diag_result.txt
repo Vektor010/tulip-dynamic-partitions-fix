@@ -1,0 +1,1337 @@
+================================================================
+REDMI NOTE 6 PRO (TULIP) HARDWARE & SYSTEM PROBE
+DATE: Fri Nov 20 18:13:31 +05 2026
+================================================================
+
+--- 1. KERNEL & OS ---
+UNAME: Linux localhost 4.4.302-SuperRyzen-OSS_LA.UM.8.2.r2-06800-sdm660.0_v10-OC #1 SMP PREEMPT Wed Mar 29 17:13:24 WIB 2023 aarch64 Toybox
+VERSION: Linux version 4.4.302-SuperRyzen-OSS_LA.UM.8.2.r2-06800-sdm660.0_v10-OC (Tiann@MobZ) (Azure clang version 15.0.0 (https://github.com/llvm/llvm-project 36c36c1ee3b01b2d4a9e7ee12c9c23a98659e0fb) - GNU ld (GNU Binutils) 2.37 - LLD 15.0.0 (compatible with GNU linkers)) #1 SMP PREEMPT Wed Mar 29 17:13:24 WIB 2023
+cat: /proc/cmdline: Permission denied
+CMDLINE: 
+SELINUX: Enforcing
+ROOT/SU: /system_ext/bin/su
+MAGISK: /system_ext/bin/magisk
+KSU: none
+
+--- 2. CPU CORES & FREQUENCIES ---
+Online cores: 0-7
+Present cores: 0-7
+Possible cores: 0-7
+
+[LITTLE Cluster: cpu0..cpu3]
+Available governors: conservative ondemand userspace powersave performance schedutil 
+Current governor: conservative
+Available frequencies: 633600 902400 1113600 1401600 1536000 1747200 1843200 
+Min freq: 633600
+Max freq: 1843200
+Current freq cpu0: 902400
+
+[BIG Cluster: cpu4..cpu7]
+Available governors: conservative ondemand userspace powersave performance schedutil 
+Current governor: conservative
+Available frequencies: 1113600 1401600 1747200 1958400 2150400 2208000 
+Min freq: 1113600
+Max freq: 2208000
+Current freq cpu4: 1113600
+
+--- 3. GPU (ADRENO 509 / KGSL) ---
+GPU devfreq governors: 
+GPU current governor: 
+GPU available freqs: 
+GPU current freq: 
+GPU busy percentage: 
+GPU num pwrlevels: 
+GPU min clock: 
+GPU max clock: 
+
+--- 4. RAM, ZRAM, SWAP & VIRTUAL MEMORY ---
+MemTotal:        3765412 kB
+MemFree:         1043212 kB
+MemAvailable:    1693696 kB
+Buffers:            1364 kB
+Cached:           815824 kB
+SwapCached:            0 kB
+Active:          1291952 kB
+Inactive:         701632 kB
+Active(anon):     949460 kB
+Inactive(anon):   335244 kB
+Active(file):     342492 kB
+Inactive(file):   366388 kB
+Unevictable:       99908 kB
+Mlocked:           99908 kB
+SwapTotal:       2824052 kB
+SwapFree:        2817148 kB
+Dirty:                52 kB
+Writeback:             0 kB
+AnonPages:       1276312 kB
+Mapped:           852324 kB
+Shmem:              8424 kB
+Slab:             194936 kB
+SReclaimable:      53076 kB
+SUnreclaim:       141860 kB
+KernelStack:       42352 kB
+PageTables:        59352 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6589464 kB
+Committed_AS:   61048252 kB
+VmallocTotal:   258867136 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+CmaTotal:         262144 kB
+CmaFree:               0 kB
+
+Swaps:
+cat: /proc/swaps: Permission denied
+
+ZRAM disksize: 
+ZRAM comp_algorithm: 
+ZRAM mm_stat: 
+ZRAM max_comp_streams: 
+
+VM Tunables:
+swappiness: 
+vfs_cache_pressure: 
+dirty_ratio: 
+dirty_background_ratio: 
+page-cluster: 
+extra_free_kbytes: 
+min_free_kbytes: 
+
+LMK parameters (if sysfs module exists):
+minfree: not using in-kernel LMK / using userspace lmkd
+adj: 
+
+PSI (Pressure Stall Information):
+Memory PSI: PSI memory not enabled
+CPU PSI: PSI cpu not enabled
+IO PSI: PSI io not enabled
+
+--- 5. STORAGE & I/O ---
+Filesystem mounts (df -h):
+Filesystem            Size Used Avail Use% Mounted on
+tmpfs                 1.7G 1.6M  1.7G   1% /dev
+tmpfs                 1.7G    0  1.7G   0% /mnt
+/dev/block/mmcblk0p61 2.9G 2.6G  305M  90% /
+/dev/block/mmcblk0p62 1.9G 489M  1.4G  25% /vendor
+magisk                1.7G 2.8M  1.7G   1% /debug_ramdisk
+tmpfs                 1.7G 8.0K  1.7G   1% /apex
+/dev/block/mmcblk0p64  47G 6.5G   41G  14% /data
+/dev/block/mmcblk0p48  12M 7.3M  4.1M  64% /vendor/dsp
+/dev/block/mmcblk0p60 254M  86M  168M  34% /cache
+magisk                1.7G    0  1.7G   0% /system/lib
+/dev/fuse              47G 6.5G   41G  14% /storage/emulated
+
+Block schedulers:
+
+eMMC CID / Health info:
+
+--- 6. BATTERY & CHARGING ---
+
+--- 7. THERMAL ZONES ---
+thermal_zone0 [battery]: 32000
+thermal_zone1 [backlight_therm]: 30
+thermal_zone10 [tsens_tz_sensor1]: 340
+thermal_zone11 [tsens_tz_sensor2]: 337
+thermal_zone12 [tsens_tz_sensor3]: 327
+thermal_zone13 [tsens_tz_sensor4]: 343
+thermal_zone14 [tsens_tz_sensor5]: 337
+thermal_zone15 [tsens_tz_sensor6]: 327
+thermal_zone16 [tsens_tz_sensor7]: 327
+thermal_zone17 [tsens_tz_sensor8]: 331
+thermal_zone18 [tsens_tz_sensor9]: 331
+thermal_zone19 [tsens_tz_sensor10]: 324
+thermal_zone2 [emmc_therm]: 32
+thermal_zone20 [tsens_tz_sensor11]: 321
+thermal_zone21 [tsens_tz_sensor12]: 331
+thermal_zone22 [tsens_tz_sensor13]: 331
+thermal_zone23 [limits_sensor-00]: 
+thermal_zone24 [limits_sensor-01]: 
+thermal_zone25 [bms]: 32000
+thermal_zone26 [GLM_soc]: 0
+thermal_zone27 [LLM_cp1-]: 0
+thermal_zone28 [LLM_cp0-]: 0
+thermal_zone3 [pa_therm0]: 31
+thermal_zone4 [pm660_tz]: 32340
+thermal_zone5 [pm660l_tz]: 37000
+thermal_zone6 [msm_therm]: 32
+thermal_zone7 [quiet_therm]: 32
+thermal_zone8 [xo_therm]: 31
+thermal_zone9 [tsens_tz_sensor0]: 334
+
+--- 8. DISPLAY & TOUCH ---
+Display panel: 
+Display modes: 
+FPS / Vsync: 
+
+--- 9. PARTITIONS & MOUNT DETAILS ---
+Mounts (/proc/mounts):
+tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+devpts /dev/pts devpts rw,seclabel,relatime,mode=600 0 0
+proc /proc proc rw,relatime,gid=3009,hidepid=2 0 0
+sysfs /sys sysfs rw,seclabel,relatime 0 0
+selinuxfs /sys/fs/selinux selinuxfs rw,relatime 0 0
+tmpfs /mnt tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755,gid=1000 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system / ext4 ro,seclabel,nodev,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/vendor /vendor ext4 ro,seclabel,relatime 0 0
+magisk /debug_ramdisk tmpfs rw,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+tmpfs /apex tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+tmpfs /mnt/installer tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755,gid=1000 0 0
+tmpfs /mnt/androidwritable tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755,gid=1000 0 0
+none /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0
+none /dev/cpuctl cgroup rw,nosuid,nodev,noexec,relatime,cpu 0 0
+none /dev/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset,noprefix,release_agent=/sbin/cpuset_release_agent 0 0
+none /dev/stune cgroup rw,nosuid,nodev,noexec,relatime,schedtune 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.adbd ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.adservices ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.appsearch ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.art ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.btservices ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.cellbroadcast ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.conscrypt ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.extservices ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.i18n ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.ipsec ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.media ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.media.swcodec ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.mediaprovider ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.neuralnetworks ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.ondevicepersonalization ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.os.statsd ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.permission ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.resolv ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.runtime ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.scheduling ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.sdkext ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.tethering ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.tzdata ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.uwb ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.vndk.v33 ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /apex/com.android.wifi ext4 ro,seclabel,relatime 0 0
+tracefs /sys/kernel/tracing tracefs rw,seclabel,relatime,gid=3012 0 0
+none /config configfs rw,nosuid,nodev,noexec,relatime 0 0
+none /sys/fs/fuse/connections fusectl rw,relatime 0 0
+bpf /sys/fs/bpf bpf rw,nosuid,nodev,noexec,relatime 0 0
+pstore /sys/fs/pstore pstore rw,seclabel,nosuid,nodev,noexec,relatime 0 0
+none /acct cgroup rw,relatime,cpuacct 0 0
+/dev/block/bootdevice/by-name/userdata /data f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/modem /vendor/firmware_mnt vfat ro,context=u:object_r:firmware_file:s0,relatime,uid=1000,gid=1000,fmask=0337,dmask=0227,codepage=437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+/dev/block/bootdevice/by-name/bluetooth /vendor/bt_firmware vfat ro,context=u:object_r:bt_firmware_file:s0,relatime,uid=1002,gid=3002,fmask=0337,dmask=0227,codepage=437,iocharset=iso8859-1,shortname=lower,errors=remount-ro 0 0
+/dev/block/bootdevice/by-name/dsp /vendor/dsp ext4 ro,seclabel,nosuid,nodev,relatime 0 0
+/dev/block/bootdevice/by-name/cache /cache f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=reuse,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/persist /mnt/vendor/persist ext4 rw,seclabel,nosuid,nodev,noatime 0 0
+tmpfs /storage tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=755,gid=1000 0 0
+/dev/block/bootdevice/by-name/userdata /data/user/0 f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+tmpfs /data_mirror tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,size=1864272k,nr_inodes=466068,mode=700,gid=1000 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/data_ce/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/data_ce/null/0 f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/data_de/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/misc_ce/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/misc_de/null f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/cur_profiles f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+/dev/block/bootdevice/by-name/userdata /data_mirror/ref_profiles f2fs rw,lazytime,seclabel,nosuid,nodev,noatime,background_gc=off,discard,no_heap,user_xattr,inline_xattr,acl,inline_data,inline_dentry,flush_merge,extent_cache,mode=adaptive,active_logs=6,alloc_mode=default,fsync_mode=nobarrier 0 0
+magisk /system/lib tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/aaudio-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.frameworks.displayservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.frameworks.schedulerservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.frameworks.sensorservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.frameworks.stats-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.frameworks.stats@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.audio.common-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.audio.common@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.audio.common@5.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.bluetooth.audio-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.bluetooth.audio@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.bluetooth.audio@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.bluetooth@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.bluetooth@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.broadcastradio@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.broadcastradio@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.camera.common@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.camera.device@3.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.cas.native@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.cas@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.common-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.common.fmq-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.configstore-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.configstore@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.configstore@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.contexthub@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm@1.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.drm@1.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss.measurement_corrections@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss.measurement_corrections@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss.visibility_control@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.gnss@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.allocator-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.allocator@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.allocator@3.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.allocator@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.bufferqueue@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.bufferqueue@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.common-V3-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.common@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.common@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.common@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.composer3-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.mapper@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.mapper@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.mapper@3.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.graphics.mapper@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.input.common-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.input.processor-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.ir@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.light@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media.bufferpool@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media.c2@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media.c2@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media.c2@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media.omx@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.media@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.memtrack-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.memtrack@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.power-V3-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.power.stats-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.power.stats@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.power@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.power@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.renderscript@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.secure_element@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.secure_element@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.secure_element@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.sensors@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.sensors@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.sensors@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.thermal@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.tv.input@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vibrator-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vibrator@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vibrator@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vibrator@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vibrator@1.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hardware.vr@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.allocator@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.memory.token@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.memory@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.safe_union@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.token@1.0-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.hidl.token@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.media.audio.common.types-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.media.audio.common.types-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.system.suspend-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.system.suspend.control-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/android.system.suspend.control.internal-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/audioclient-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/audioflinger-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/audiopolicy-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/audiopolicy-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/av-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/bootstrap/libdl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/bootstrap/libm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/bootstrap/libdl_android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/bootstrap/libc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/capture_state_listener-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/drm/libfwdlockengine.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/effect-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/framework-permission-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/heapprofd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/heapprofd_client_api.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/hw/android.hidl.memory@1.0-impl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/ld-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/lib-platform-compat-native-api.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libEGL.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libETC1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libFFTEm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libFileMux.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libGLESv1_CM.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libGLESv2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libGLESv3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libOmxMux.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libOpenMAXAL.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libOpenSLES.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libPlatformProperties.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRS.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRSCacheDir.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRSCpuRef.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRSDriver.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRS_internal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libRScpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libSurfaceFlingerProp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaaudio.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaaudio_internal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libactivitymanager_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libadbd_auth.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libadbd_fs.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libalarm_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libamidi.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroid_net.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroid_runtime.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroid_runtime_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroid_servers.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libandroidfw.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libappfuse.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libartpalette-system.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libasyncio.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudio-resampler.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudioclient.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudioclient_aidl_conversion.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudioeffect_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudiofoundation.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudiomanager.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudiopolicy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libaudioutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libavservices_minijail.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbacktrace.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbattery.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbatterystats_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbcinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbinder.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbinder_ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbinder_rpc_unstable.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libblas.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbpf_bcc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbpf_minimal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbufferhub.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libbufferhubqueue.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libc++.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcamera2ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcamera_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcamera_metadata.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcgrouprc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libchrome.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclang_rt.asan-arm-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclang_rt.ubsan_standalone-arm-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclcore.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclcore_debug.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclcore_debug_g.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclcore_g.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libclcore_neon.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2_hidl_client@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2_hidl_client@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2_hidl_client@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcodec2_vndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcompiler_rt.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcrypto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcrypto_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libcutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdataloader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdatasource.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdebuggerd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdmabufheap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdng_sdk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdrmframework.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdrmframework_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libdrmframeworkcommon.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libevent.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libexpat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libfdtrack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libfilterfw.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libfilterpack_imageproc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libfmq.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libft2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libgatekeeper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libgralloctypes.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libgraphicsenv.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libgui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhardware.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhardware_legacy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libharfbuzz_ng.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libheif.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhidl-gen-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhidlallocatorutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhidlbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhidlmemory.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhidltransport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhwbinder.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libhwui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libimg_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libincfs.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libincident.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libincidentpriv.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinput.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinputflinger.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinputflinger_base.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinputreader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinputreporter.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libinputservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libion.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libiprouteutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libjnigraphics.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libjpeg.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libkll.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/liblog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/liblz4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/liblzma.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmdnssd.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_codeclist.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_helper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_jni_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_omx.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmedia_omx_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediadrm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediadrmmetrics_consumer.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediadrmmetrics_full.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediadrmmetrics_lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediametrics.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediandk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediandk_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediaplayerservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediautils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmediautils_delayed.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmeminfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmemtrack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmemtrackproxy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmemunreachable.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libminijail.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libminikin.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmmosal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmmparser_lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libmtp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnativebridge_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnativedisplay.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnativeloader_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnativewindow.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnblog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnetd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnetdutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnetlink.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libnetutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libneuralnetworks_packageinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpackagelistparser.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpcre2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpdfium.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpdx_default_transport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpermission.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpiex.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpng.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpower.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpowermanager.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libprocessgroup.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libprocinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libprotobuf-cpp-full.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libprotobuf-cpp-lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libprotoutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libpsi.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libqdMetaData.system.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libradio_metadata.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libresourcemanagerservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/librs_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/librtp_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libschedulerservicehidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libselinux.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsensor.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsensorprivacy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsensorservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsensorservicehidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libservices.core-gnss.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsfplugin_ccodec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsfplugin_ccodec_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libshmemcompat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libshmemutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsonic.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsonivox.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsoundpool.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libspeexresampler.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsqlite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libssl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_amrnb_common.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_bufferpool@2.0.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_bufferqueue_helper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_codecbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_foundation.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_framecapture_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_http_support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_httplive.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_omx.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_omx_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_surface_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_wfd.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstagefright_xmlparser.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstatshidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstatslog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libstdc++.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsync.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libsysutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libtimeinstate.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libtimestats_atoms_proto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libtinyalsa.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libtinyxml2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libtombstoned_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libunwindstack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libusbhost.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libutilscallstack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libvibratorservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libvintf.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libvndksupport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libvulkan.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libwebviewchromium_loader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libwebviewchromium_plat_support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libwilhelm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libxml2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libz.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/libziparchive.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/mediametricsservice-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/packagemanager_aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/server_configurable_flags.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/service.incremental.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/shared-file-region-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib/spatializer-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+magisk /system/lib/libzygisk.so tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+magisk /system/lib64 tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/aaudio-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.common@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.device@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.device@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.service@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.service@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.cameraservice.service@2.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.displayservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.schedulerservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.sensorservice@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.stats-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.frameworks.stats@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.atrace@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@2.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@4.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@5.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@5.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@6.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.common@6.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@2.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@4.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@5.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@5.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@6.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio.effect@6.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@2.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@4.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@5.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@5.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@6.0-util.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.audio@6.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.bluetooth.audio-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.bluetooth.audio@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.bluetooth.audio@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.bluetooth@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.bluetooth@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.boot@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.boot@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.broadcastradio@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.broadcastradio@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.common-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.common@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.5.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.6.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.device@3.7.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata@3.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata@3.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata@3.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata@3.5.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.metadata@3.6.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.provider-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.provider@2.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.provider@2.5.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.provider@2.6.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.camera.provider@2.7.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.cas.native@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.cas@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.common-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.common.fmq-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.configstore-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.configstore@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.configstore@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.confirmationui@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.contexthub@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm@1.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.drm@1.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.dumpstate-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.dumpstate@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.dumpstate@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gatekeeper@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/bootstrap/libdl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/bootstrap/libm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/bootstrap/libdl_android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/bootstrap/libc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss.measurement_corrections@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss.measurement_corrections@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss.visibility_control@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.gnss@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.allocator-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.allocator@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.allocator@3.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.allocator@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.bufferqueue@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.bufferqueue@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.common-V3-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.common@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.common@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.common@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.composer3-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.composer@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.composer@2.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.composer@2.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.composer@2.4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.mapper@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.mapper@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.mapper@3.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.graphics.mapper@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health.storage-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health.storage@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.health@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.identity-support-lib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.input.common-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.input.processor-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.ir@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.keymaster@3.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.keymaster@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.keymaster@4.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.light@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media.bufferpool@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media.c2@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media.c2@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media.c2@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media.omx@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.media@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.memtrack-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.memtrack@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.net.nlinterceptor-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power-V3-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power.stats-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power.stats-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power.stats@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.power@1.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.renderscript@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.secure_element@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.secure_element@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.secure_element@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.keymint-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.keymint-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.keymint-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.keymint-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.secureclock-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.secureclock-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.security.sharedsecret-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.sensors@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.sensors@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.sensors@2.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.thermal@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.tv.input@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.usb.gadget@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vibrator-V2-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vibrator@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vibrator@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vibrator@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vibrator@1.3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hardware.vr@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.allocator@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.memory.token@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.memory@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.safe_union@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.token@1.0-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.hidl.token@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.media.audio.common.types-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.apc-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/drm/libfwdlockengine.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.media.audio.common.types-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.authorization-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.compat-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.legacykeystore-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.maintenance-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.security.remoteprovisioning-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.keystore2-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.keystore2-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.keystore2-V2-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.net.netd@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.net.netd@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.suspend-V1-ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.suspend.control-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.suspend.control.internal-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.suspend@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/android.system.wifi.keystore@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/apex_aidl_interface-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/audioclient-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/audioflinger-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/audiopolicy-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/audiopolicy-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/av-types-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/capture_state_listener-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/dnsresolver_aidl_interface-V7-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/effect-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/faceunlock_vendor_dependencies.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/framework-permission-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/gsi_aidl_interface-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/heapprofd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/heapprofd_client_api.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/hw/android.hidl.memory@1.0-impl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/ld-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/lib-platform-compat-native-api.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libEGL.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libETC1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libFFTEm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libFaceDetectCA.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libGLESv1_CM.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libGLESv2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libGLESv3.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libLLVM_android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libMegviiUnlock-jni-1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libMegviiUnlock.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libOpenMAXAL.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libOpenSLES.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libPlatformProperties.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRS.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRSCacheDir.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRSCpuRef.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRSDriver.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRS_internal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libRScpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libSurfaceFlingerProp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libSuspendProperties.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/lib_android_keymaster_keymint_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaaudio.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaaudio_internal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaaudioservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libactivitymanager_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libadbd_auth.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libadbd_fs.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libalarm_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libamidi.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_log_sys.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_logger.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_net.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_runtime.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_runtime_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroid_servers.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libandroidfw.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libanyhow.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libappfuse.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libarcsoft-lib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libarcsoft_faceid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libarcsoftbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libartpalette-system.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libasyncio.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudio-resampler.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioclient.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioclient_aidl_conversion.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioeffect_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioflinger.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiofoundation.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@2.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@4.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@5.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@6.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@7.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal@7.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiohal_deathhandler.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiomanager.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiopolicy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiopolicyenginedefault.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiopolicymanagerdefault.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiopolicyservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioprocessing.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudiospdif.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libaudioutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libavservices_minijail.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbacktrace.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbattery.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbatterystats_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbcc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbcinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbinder.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbinder_ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbinder_rpc_unstable.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbinderdebug.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbitflags.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libblas.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbootanimation.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbootloader_message.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbpf_android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbpf_bcc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbpf_minimal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbssl_ffi.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbufferhub.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbufferhubqueue.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libbytes.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libc++.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcamera2ndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcamera_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcamera_metadata.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcameraservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcfg_if.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcgrouprc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libchrome.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclang_rt.asan-aarch64-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclcore.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclcore_debug.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclcore_debug_g.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclcore_g.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libclcore_neon.bc ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl_client@1.0.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl_client@1.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl_client@1.2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_hidl_plugin_stub.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_aacdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_aacenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_amrnbdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_amrnbenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_amrwbdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_amrwbenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_av1dec_gav1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_avcdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_avcenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_common.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_flacdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_flacenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_g711alawdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_g711mlawdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_gsmdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_h263dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_h263enc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_hevcdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_hevcenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_mp3dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_mpeg2dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_mpeg4dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_mpeg4enc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_opusdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_opusenc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_rawdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_vorbisdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_vp8dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_vp8enc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_vp9dec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_soft_vp9enc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcodec2_vndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcompiler_rt.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcppbor_external.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcppcose_rkp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcredstore_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcrypto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcrypto_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcups.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libcutils_socket_bindgen.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdataloader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdatasource.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdebuggerd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdiskconfig.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdisplayservicehidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdmabufheap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdng_sdk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdrmframework.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdrmframework_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdrmframeworkcommon.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdumpstateaidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdumpstateutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdumputils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libdynamic_depth.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libeffectsconfig.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libenv_logger.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libevent.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libexif.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libexpat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_blkid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_com_err.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_e2p.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_misc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_quota.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2_uuid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext2fs.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libext4_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libf2fs_sparseblock.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfdtrack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfilterfw.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfilterpack_imageproc.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfmq.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfs_mgr.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfs_mgr_binder.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfsverity.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libft2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libfuse-lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgatekeeper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgatekeeper_aidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgfxstats.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgpumem.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgpumemtracer.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgpuservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgpuwork.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgralloctypes.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgraphicsenv.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgsi.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libgui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhardware.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhardware_legacy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libharfbuzz_ng.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libheadtracking-binding.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libheadtracking.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libheif.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidcommand_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidl-gen-hash.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidl-gen-utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidlallocatorutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidlbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidlmemory.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhidltransport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhwbinder.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libhwui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libidmap2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libidmap2_policies.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libimage_io.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libimg_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libincfs.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libincident.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libincidentpriv.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinput.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinputflinger.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinputflinger_base.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinputreader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinputreporter.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libinputservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libion.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libiprouteutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libjnigraphics.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libjpeg.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libjsoncpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymaster4_1support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymaster4support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymaster_messages.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymaster_portable.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymint.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeymint_support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeystore-attestation-application-id.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeystore-engine.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeystore2_aaid.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeystore2_apc_compat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeystore2_crypto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkeyutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkll.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkm_compat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libkm_compat_service.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblayers_proto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblazy_static.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblibc.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblog.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblogger.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblogwrap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblpdump.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblpdump_interface-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblz4.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/liblzma.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmdnssd.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_codeclist.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_codecserviceregistrant.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_helper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_jni_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_omx.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedia_omx_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediadrm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediadrmmetrics_consumer.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediadrmmetrics_full.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediadrmmetrics_lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediaextractorservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmedialogservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediametrics.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediametricsservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediandk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediandk_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediautils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmediautils_delayed.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmegface.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmemchr.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmeminfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmemoffset.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmemtrack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmemtrackproxy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmemunreachable.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libminijail.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libminikin.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmio.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmmosal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmpbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libmtp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnativebridge_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnativedisplay.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnativeloader_lazy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnativewindow.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnbaio.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnblog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnetd_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnetdutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnetlink.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnetutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libneuralnetworks_packageinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnix.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libntfs-3g.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libnum_cpus.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libopus.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpackagelistparser.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpcap.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpcre2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpdfium.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpdx_default_transport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libperfetto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libperfetto_android_internal.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpermission.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpiex.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpin_project_lite.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpng.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpower.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpowermanager.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprintspooler_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprocessgroup.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprocessgroup_setup.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprocinfo.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprotobuf-cpp-full.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprotobuf-cpp-lite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libprotoutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpsi.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libpuresoftkeymasterdevice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libqdMetaData.system.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libradio_metadata.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/librs_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/librtp_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libschedulerservicehidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libselinux.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsensor.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsensorprivacy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsensorservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsensorservicehidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libservices.core-gnss.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libservices.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsfplugin_ccodec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsfplugin_ccodec_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libshmemcompat.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libshmemutil.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsoft_attestation_cert.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsonic.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsonivox.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsoundpool.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsparse.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libspeexresampler.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsqlite.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsquashfs_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libssl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_amrnb_common.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_bufferpool@2.0.1.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_bufferqueue_helper.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_bufferqueue_helper_novndk.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_codecbase.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_enc_common.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_flacdec.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_foundation.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_framecapture_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_http_support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_omx.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_omx_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_surface_utils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstagefright_xmlparser.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstatshidl.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstatslog.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstd.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libstdc++.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsync.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libsysutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtimeinstate.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtimestats.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtimestats_atoms_proto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtimestats_proto.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtinyalsa.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtinyxml2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtokio.dylib.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtombstoned_client.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libtracingproxy.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libui.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libuinputcommand_jni.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libunwindstack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libusbhost.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libutils.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libutilscallstack.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvibrator.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvibratorservice.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvintf.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvkjson.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvndksupport.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvpx.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libvulkan.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libwebviewchromium_loader.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libwebviewchromium_plat_support.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libwfds.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libwifi-system-iface.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libwilhelm.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libxml2.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libyuv.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libz.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/libziparchive.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/mdns_aidl_interface-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/media_permission-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/mediametricsservice-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/netd_aidl_interface-V10-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/netd_event_listener_interface-V1-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/oemnetd_aidl_interface-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/packagemanager_aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/pppol2tp-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/pppopptp-android.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/server_configurable_flags.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/service.incremental.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/shared-file-region-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/slicer.so ext4 ro,seclabel,relatime 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/lib64/spatializer-aidl-cpp.so ext4 ro,seclabel,relatime 0 0
+magisk /system/lib64/libzygisk.so tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+magisk /system/system_ext/bin tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/system /system/system_ext/bin/dpmd ext4 ro,seclabel,relatime 0 0
+magisk /system/system_ext/bin/magisk tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+magisk /system/system_ext/bin/magiskpolicy tmpfs ro,seclabel,relatime,size=1864272k,nr_inodes=466068,mode=755 0 0
+adb /dev/usb-ffs/adb functionfs rw,relatime 0 0
+/data/media /mnt/runtime/default/emulated sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/runtime/read/emulated sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=9997,multiuser,mask=23,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/runtime/write/emulated sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=9997,multiuser,mask=7,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/runtime/full/emulated sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=9997,multiuser,mask=7,derive_gid,default_normal,unshared_obb 0 0
+/dev/fuse /mnt/user/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/installer/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /mnt/androidwritable/0/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/dev/fuse /storage/emulated fuse rw,lazytime,nosuid,nodev,noexec,noatime,user_id=0,group_id=0,allow_other 0 0
+/data/media /mnt/pass_through/0/emulated sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=9997,multiuser,mask=7,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/user/0/emulated/0/Android/data sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /storage/emulated/0/Android/data sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/androidwritable/0/emulated/0/Android/data sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/installer/0/emulated/0/Android/data sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/user/0/emulated/0/Android/obb sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /storage/emulated/0/Android/obb sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/androidwritable/0/emulated/0/Android/obb sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=1015,multiuser,mask=6,derive_gid,default_normal,unshared_obb 0 0
+/data/media /mnt/installer/0/emulated/0/Android/obb sdcardfs rw,nosuid,nodev,noexec,noatime,fsuid=1023,fsgid=1023,gid=9997,multiuser,mask=7,derive_gid,default_normal,unshared_obb 0 0
+
+by-name partitions:
+total 0
+drwxr-xr-x 2 root root 1320 1978-01-02 07:28 .
+drwxr-xr-x 3 root root 1380 1978-01-02 07:28 ..
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 abl -> /dev/block/mmcblk0p25
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 ablbak -> /dev/block/mmcblk0p26
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 apdp -> /dev/block/mmcblk0p11
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 bk1 -> /dev/block/mmcblk0p49
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 bk2 -> /dev/block/mmcblk0p51
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 bluetooth -> /dev/block/mmcblk0p38
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 boot -> /dev/block/mmcblk0p58
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cache -> /dev/block/mmcblk0p60
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cmnlib -> /dev/block/mmcblk0p21
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cmnlib64 -> /dev/block/mmcblk0p23
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cmnlib64bak -> /dev/block/mmcblk0p24
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cmnlibbak -> /dev/block/mmcblk0p22
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 cust -> /dev/block/mmcblk0p63
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 ddr -> /dev/block/mmcblk0p28
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 devcfg -> /dev/block/mmcblk0p31
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 devcfgbak -> /dev/block/mmcblk0p30
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 devinfo -> /dev/block/mmcblk0p43
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 dip -> /dev/block/mmcblk0p27
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 dpo -> /dev/block/mmcblk0p2
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 dsp -> /dev/block/mmcblk0p48
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 frp -> /dev/block/mmcblk0p14
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 fsc -> /dev/block/mmcblk0p3
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 fsg -> /dev/block/mmcblk0p45
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 hyp -> /dev/block/mmcblk0p17
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 hypbak -> /dev/block/mmcblk0p18
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 keymaster -> /dev/block/mmcblk0p36
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 keymasterbak -> /dev/block/mmcblk0p37
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 keystore -> /dev/block/mmcblk0p13
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 limits -> /dev/block/mmcblk0p4
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 logdump -> /dev/block/mmcblk0p55
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 logfs -> /dev/block/mmcblk0p44
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 mdtp -> /dev/block/mmcblk0p50
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 mdtpsecapp -> /dev/block/mmcblk0p34
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 mdtpsecappbak -> /dev/block/mmcblk0p35
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 misc -> /dev/block/mmcblk0p42
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 modem -> /dev/block/mmcblk0p56
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 modemst1 -> /dev/block/mmcblk0p46
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 modemst2 -> /dev/block/mmcblk0p47
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 msadp -> /dev/block/mmcblk0p12
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 persist -> /dev/block/mmcblk0p53
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 persistbak -> /dev/block/mmcblk0p54
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 pmic -> /dev/block/mmcblk0p19
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 pmicbak -> /dev/block/mmcblk0p20
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 rawdump -> /dev/block/mmcblk0p57
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 recovery -> /dev/block/mmcblk0p59
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 rpm -> /dev/block/mmcblk0p15
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 rpmbak -> /dev/block/mmcblk0p16
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 sec -> /dev/block/mmcblk0p6
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 splash -> /dev/block/mmcblk0p52
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 ssd -> /dev/block/mmcblk0p5
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 sti -> /dev/block/mmcblk0p39
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 storsec -> /dev/block/mmcblk0p9
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 storsecbak -> /dev/block/mmcblk0p10
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 switch -> /dev/block/mmcblk0p1
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 system -> /dev/block/mmcblk0p61
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 toolsfv -> /dev/block/mmcblk0p29
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 tz -> /dev/block/mmcblk0p32
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 tzbak -> /dev/block/mmcblk0p33
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 userdata -> /dev/block/mmcblk0p64
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 vbmeta -> /dev/block/mmcblk0p7
+lrwxrwxrwx 1 root root   20 1978-01-02 07:28 vbmetabak -> /dev/block/mmcblk0p8
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 vendor -> /dev/block/mmcblk0p62
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 xbl -> /dev/block/mmcblk0p40
+lrwxrwxrwx 1 root root   21 1978-01-02 07:28 xblbak -> /dev/block/mmcblk0p41
+================================================================
+PROBE COMPLETE
+================================================================

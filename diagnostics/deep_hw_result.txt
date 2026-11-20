@@ -1,0 +1,133 @@
+=== DISPLAY DSI TIMINGS ===
+[    0.348888] mdss_dsi_find_panel_of_node: cmdline:0:qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video:config0:1:none:cfg:single_dsi panel_name:qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video
+[    0.348964] mdss_dsi_panel_init: Panel Name = shenchao nt36672a fhdplus video mode dsi panel
+[    0.349067] mdss_dsi_panel_timing_from_dt: found new timing "qcom,mdss_dsi_nt36672a_e7t_shenchao_fhdplus_video" (fffffff9abaf1400)
+[    0.349100] mdss_dsi_panel_get_dsc_cfg_np: cannot find dsc config node:config0
+[    0.349429] dyn_fps: min = 48, max = 60
+[    0.349869] dsi_panel_device_register: Continuous splash enabled
+[    0.353699] mdss_dsi_panel_reset, panel reset, enable = 1
+[    1.617750] Macle fpc1020_probe failed as fpsensor=2(1=fp)
+[    3.584437] mdss_mdp_kcal_store_fb0_ctl panel name shenchao nt36672a fhdplus video mode dsi panel
+[   12.030536] init: starting service 'vendor.fps_hal'...
+[   13.187570] init: Unable to set property 'ro.boot.fpsensor' from uid:1000 gid:1000 pid:1152: Read-only property was already set
+[   26.570631] mdss_dsi_panel_bl_ctrl: bl_level:3276
+[   35.663265] mdss_dsi_panel_bl_ctrl: bl_level:3565
+[   35.679142] mdss_dsi_panel_bl_ctrl: bl_level:4095
+[   44.328920] mdss_dsi_panel_bl_ctrl: bl_level:3838
+[   44.344277] mdss_dsi_panel_bl_ctrl: bl_level:3340
+[   44.361243] mdss_dsi_panel_bl_ctrl: bl_level:2890
+[   44.377695] mdss_dsi_panel_bl_ctrl: bl_level:2521
+[   44.394919] mdss_dsi_panel_bl_ctrl: bl_level:2200
+[   44.411487] mdss_dsi_panel_bl_ctrl: bl_level:1911
+[   44.427696] mdss_dsi_panel_bl_ctrl: bl_level:1670
+[   44.445101] mdss_dsi_panel_bl_ctrl: bl_level:1461
+[   44.461253] mdss_dsi_panel_bl_ctrl: bl_level:1268
+[   44.477989] mdss_dsi_panel_bl_ctrl: bl_level:1108
+[   44.494742] mdss_dsi_panel_bl_ctrl: bl_level:979
+[   44.511141] mdss_dsi_panel_bl_ctrl: bl_level:867
+[   44.528106] mdss_dsi_panel_bl_ctrl: bl_level:754
+[   44.544493] mdss_dsi_panel_bl_ctrl: bl_level:674
+[   44.561711] mdss_dsi_panel_bl_ctrl: bl_level:594
+[   44.578268] mdss_dsi_panel_bl_ctrl: bl_level:529
+
+=== GPU KGSL SYSFS ===
+total 0
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 bus_split
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 clock_mhz
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 dev
+lrwxrwxrwx 1 root   root      0 1978-01-02 07:28 devfreq -> ../../devfreq/5000000.qcom,kgsl-3d0
+lrwxrwxrwx 1 root   root      0 1978-01-02 07:28 device -> ../../../5000000.qcom,kgsl-3d0
+drwxr-xr-x 2 root   root      0 1978-01-02 07:28 dispatch
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 force_bus_on
+-rw-rw-r-- 1 system system 4096 1978-01-02 07:28 force_clk_on
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 force_no_nap
+-rw-rw-r-- 1 system system 4096 1978-01-02 07:28 force_rail_on
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 freq_table_mhz
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 ft_fast_hang_detect
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 ft_hang_intr_status
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 ft_long_ib_detect
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 ft_pagefault_policy
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 ft_policy
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 gpu_available_frequencies
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 gpu_busy_percentage
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 gpu_clock_stats
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 gpu_model
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 gpubusy
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 gpuclk
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 hwcg
+-rw-rw-r-- 1 system system 4096 1978-01-02 07:28 idle_timer
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 lm
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 max_clock_mhz
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 max_gpuclk
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 max_pwrlevel
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 min_clock_mhz
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 min_pwrlevel
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 num_pwrlevels
+-rw-rw---- 1 root   shell  4096 1978-01-02 07:28 perfcounter
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 pmqos_active_latency
+drwxr-xr-x 2 root   root      0 1978-01-02 07:28 power
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 preemption
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 pwrscale
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 reset_count
+drwxr-xr-x 2 root   root      0 1978-01-02 07:28 snapshot
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 sptp_pc
+lrwxrwxrwx 1 root   root      0 1978-01-02 07:28 subsystem -> ../../../../../class/kgsl
+-r--r--r-- 1 root   root   4096 1978-01-02 07:28 temp
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 thermal_pwrlevel
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 throttling
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 uevent
+-rw-r--r-- 1 root   root   4096 1978-01-02 07:28 wake_nice
+gpu_available_frequencies: 430000000 370000000 266000000 160000000 
+devfreq/available_frequencies: 430000000 370000000 266000000 160000000
+devfreq/available_governors: spdm_bw_hyp mem_latency bw_hwmon venus-ddr-gov msm-vidc-vmem+ msm-vidc-vmem msm-vidc-ddr bw_vbif gpubw_mon cpufreq msm-adreno-tz userspace powersave performance simple_ondemand
+devfreq/governor: msm-adreno-tz
+devfreq/cur_freq: 160000000
+gpuclk: 19200000
+num_pwrlevels: 4
+min_clock_mhz: 160
+max_clock_mhz: 430
+thermal_pwrlevel: 0
+idle_timer: 67
+
+=== GPU PWRLEVELS ===
+
+=== TOUCH DIGITIZER ===
+[    0.411977] input: ant_check-input as /devices/virtual/input/input1
+[    0.438580] input: fts_ts as /devices/soc/c175000.i2c/i2c-1/1-0038/input/input2
+[    1.611715] input: NVTCapacitiveTouchScreen as /devices/virtual/input/input3
+[    1.616422] input: hall-switch-input as /devices/virtual/input/input4
+[    1.618225] input: uinput-goodix as /devices/virtual/input/input5
+[    3.603655] input: gpio-keys as /devices/soc/soc:gpio_keys/input/input6
+[    7.782193] init: Command 'copy /system/etc/prop.default /dev/urandom' action=init (/system/etc/init/hw/init.rc:94) took 0ms and failed: Could not read input file '/system/etc/prop.default': open() failed: No such file or directory
+[    8.255302] init: Command 'copy /vendor/dsp/cdsp/fastrpc_shell_3 /mnt/vendor/dsp/fastrpc_shell_3' action=post-fs (/vendor/etc/init/hw/init.target.rc:70) took 1ms and failed: Could not read input file '/vendor/dsp/cdsp/fastrpc_shell_3': open() failed: No such file or directory
+[    9.015279] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[    9.865525] input: sdm660-snd-card Headset Jack as /devices/soc/soc:sound/sound/card0/input7
+[    9.865642] input: sdm660-snd-card Button Jack as /devices/soc/soc:sound/sound/card0/input8
+[   12.430491] input: uinput-fpc as /devices/virtual/input/input9
+[   12.443222] init: Can not open /dev/input/event8: No such device or address
+[   12.540591] QSEECOM: qseecom_load_app: App (goodixfp) does'nt exist, loading apps for first time
+[   12.728387] QSEECOM: qseecom_load_app: App with id 327683 (goodixfp) now loaded
+[   47.291285] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  344.207129] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  345.210290] PMI: smblib_handle_switcher_power_ok: Reverse boost detected: voting 0mA to suspend input
+[  520.356441] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  522.280110] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  532.509270] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  534.096728] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[  644.699178] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[ 1013.620864] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+[ 1042.312852] FG: fg_delta_msoc_irq_handler: lct battery SOC:98 voltage:4218006uV current:345214uA temp:320 id:101K charge_status:1 charge_type:3 health:1 input_present:1 temp_qt:32 
+[ 1205.251118] gf_spi: [info] goodix_fb_state_chg_callback go to the goodix_fb_state_chg_callback value = 9
+
+=== CPU FREQUENCY SCALING & LIMITS ===
+633600
+1843200
+1113600
+2208000
+
+=== THERMAL MITIGATION / CORE CONTROL ===
+enabled: N
+
+=== BINDER STATS ===
+
+=== LOGCAT ANR / CRASH CHECK ===

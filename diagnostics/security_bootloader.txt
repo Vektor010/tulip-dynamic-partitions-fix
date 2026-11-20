@@ -1,0 +1,12 @@
+﻿=== SELinux Status ===
+Enforcing
+=== Root / Magisk / su check ===
+/system_ext/bin/su
+/system_ext/bin/magisk
+=== Bootloader and Lock State Props ===
+green
+1
+1
+0
+0
+
