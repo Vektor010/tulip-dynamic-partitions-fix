@@ -36,6 +36,7 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 
 | Feature | Purpose | PC Required? | Recovery Method |
 | :--- | :--- | :---: | :---: |
+| **Recovery Install** | Flash OrangeFox / TWRP image to hardware partition | Yes (Fastboot) | `fastboot flash recovery` |
 | **Diagnostics** | Hardware, partition, and RAM verification | Yes (ADB) | Not applicable |
 | **ROM Patcher** | Automated `unsparse_super_empty.img` byte & SHA-256 fix | Yes (Windows/Python) | Flash patched ZIP |
 | **Manual Patch** | In-depth hex editing and independent checksum validation | Yes (Hex Editor) | Flash modified ZIP |
@@ -53,7 +54,7 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 * [Каталог ошибок](docs/ru/ERRORS_AND_SOLUTIONS.md) — Подробный разбор Error 1, bootloop, Error 21.
 * [Ручной способ правки](docs/ru/MANUAL_PATCH_GUIDE.md) — Редактирование в HxD без закрытых скриптов.
 * [Автоматический патчер](docs/ru/AUTOMATIC_PATCH_GUIDE.md) — Использование PowerShell/Python утилит.
-* [Установка в Recovery](docs/ru/RECOVERY_INSTALLATION.md) — Кнопка-за-кнопкой в OrangeFox и TWRP.
+* [Установка Recovery и прошивка](docs/ru/RECOVERY_INSTALLATION.md) — Команды Fastboot, OrangeFox и TWRP, F2FS.
 * [Бэкап и откат](docs/ru/BACKUP_AND_RESTORE.md) — Защита IMEI (EFS), откат на стоковую MIUI.
 * [Частые вопросы (FAQ)](docs/ru/FAQ.md) — Ответы на популярные вопросы.
 
@@ -64,7 +65,7 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 * [Errors and Solutions](docs/en/ERRORS_AND_SOLUTIONS.md) — Comprehensive Error 1 & bootloop teardown.
 * [Manual Binary Patch](docs/en/MANUAL_PATCH_GUIDE.md) — Direct HxD hex modification instructions.
 * [Automated Patcher](docs/en/AUTOMATIC_PATCH_GUIDE.md) — PowerShell & Python 1-click workflows.
-* [Recovery Installation](docs/en/RECOVERY_INSTALLATION.md) — OrangeFox and TWRP workflows.
+* [Recovery Installation & Flashing](docs/en/RECOVERY_INSTALLATION.md) — Fastboot recovery flashing, OrangeFox/TWRP, F2FS.
 * [Backup and Rollback](docs/en/BACKUP_AND_RESTORE.md) — EFS protection, clean MIUI rollback.
 * [FAQ](docs/en/FAQ.md) — Answers to community questions.
 

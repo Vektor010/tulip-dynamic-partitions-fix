@@ -44,6 +44,17 @@ If your computer fails to detect the phone in Fastboot or Recovery:
 2. Right-click **`install_drivers.cmd`** and select **Run as Administrator**.
 3. Allow the script to register official Xiaomi and Google driver packages. See [Driver Documentation](../../drivers/README.md) for details.
 
+### Step 1.1. Installing Custom Recovery via Fastboot
+*(If your phone is still running the factory MIUI recovery)*:
+1. Put the powered-off phone into Fastboot mode: hold **Volume Down + Power**.
+2. Connect to PC via USB and execute in terminal:
+   ```powershell
+   fastboot devices
+   fastboot flash recovery recovery.img
+   fastboot boot recovery.img
+   ```
+3. For full details on avoiding stock MIUI recovery overwrite, see the [Recovery Installation Guide](RECOVERY_INSTALLATION.md).
+
 ### Step 2. Safeguard Radio Calibration
 Boot into recovery (hold **Volume Up + Power** from powered-off state):
 1. Navigate to the **Backup** menu.
