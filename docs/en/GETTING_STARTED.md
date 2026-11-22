@@ -49,11 +49,16 @@ If your computer fails to detect the phone in Fastboot or Recovery:
 1. Put the powered-off phone into Fastboot mode: hold **Volume Down + Power**.
 2. Connect to PC via USB and execute in terminal:
    ```powershell
+   # 1. Verify USB connection
    fastboot devices
+
+   # 2. Flash recovery to persistent partition
    fastboot flash recovery recovery.img
+
+   # 3. Immediately direct-boot from RAM (prevents stock MIUI from overwriting recovery!)
    fastboot boot recovery.img
    ```
-3. For full details on avoiding stock MIUI recovery overwrite, see the [Recovery Installation Guide](RECOVERY_INSTALLATION.md).
+3. For step-by-step instructions, see the [Recovery Installation Guide](RECOVERY_INSTALLATION.md); for the complete command reference, see the [Fastboot Cheat Sheet](FASTBOOT_CHEAT_SHEET.md).
 
 ### Step 2. Safeguard Radio Calibration
 Boot into recovery (hold **Volume Up + Power** from powered-off state):

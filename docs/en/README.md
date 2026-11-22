@@ -11,6 +11,7 @@ Welcome to the comprehensive technical documentation and toolkit for installing 
 | Section | Description | Target Audience |
 | :--- | :--- | :--- |
 | **[Getting Started](GETTING_STARTED.md)** | Step-by-step novice guide from unlocked bootloader to first boot. | Beginners |
+| **[Fastboot Command Reference](FASTBOOT_CHEAT_SHEET.md)** | Full Fastboot CLI reference, ARB 4, EDL, partition map, and USB 3.0 fix. | Everyone |
 | **[Device & ROM Compatibility](DEVICE_COMPATIBILITY.md)** | Supported models, hardware specs, Tulip vs Whyred differences, tested ROMs. | Everyone |
 | **[Partitions & Retrofit Super Architecture](PARTITIONS_EXPLAINED.md)** | In-depth explanation of GPT, physical vs logical partitions, and `liblp` metadata. | Everyone |
 | **[Errors & Solutions Catalog](ERRORS_AND_SOLUTIONS.md)** | Comprehensive troubleshooting for Error 1, bootloops, checksum mismatches, and ADB. | Everyone |

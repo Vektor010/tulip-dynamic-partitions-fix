@@ -1,10 +1,13 @@
 # 📲 Custom Recovery Installation & ROM Flashing (OrangeFox / TWRP)
 
-[🇷🇺 Русская версия](../ru/RECOVERY_INSTALLATION.md) | [📚 Index](README.md)
+[🇷🇺 Русская версия](../ru/RECOVERY_INSTALLATION.md) | [📚 Index](README.md) | [⚡ Fastboot Reference](FASTBOOT_CHEAT_SHEET.md)
 
 This comprehensive guide covers:
 1. **How to install the custom recovery (OrangeFox / TWRP) onto your phone from a PC via Fastboot.**
-2. **How to flash the prepared ROM archive inside recovery and configure F2FS storage.**
+2. **How to flash the prepared ROM archive inside recovery and configure F2FS storage to prevent bootloops.**
+
+> [!TIP]
+> For the complete reference of low-level commands, Anti-Rollback (ARB 4) checks, EDL modes, and AMD Ryzen USB 3.0 hang fixes, see the **[Fastboot Command Reference](FASTBOOT_CHEAT_SHEET.md)**.
 
 ---
 
@@ -30,14 +33,21 @@ Follow this procedure if your phone is currently running stock MIUI recovery or 
 3. Keep holding for 5–7 seconds until the screen displays the orange **FASTBOOT** banner (or the Xiaomi bunny mascot).
 4. Connect the phone to your PC using a reliable Micro-USB cable (preferably a black USB 2.0 rear port on your motherboard).
 
-#### Step 2. Verify Fastboot Connection
-Open a PowerShell or Command Prompt terminal in the directory where your `recovery.img` is saved, and execute:
+#### Step 2. Hardware Pre-Flight Verification
+Open a PowerShell or Command Prompt terminal in the directory where your `recovery.img` is saved:
+
 ```powershell
+# 1. Verify device detection
 fastboot devices
+
+# 2. Confirm hardware codename (prevents flashing wrong device firmware)
+fastboot getvar product
+# Expected: product: tulip (or twolip)
+
+# 3. Confirm bootloader unlock status
+fastboot oem device-info
+# Strictly required: Device unlocked: true
 ```
-> **Expected Output:** Your device serial number alongside the `fastboot` keyword:  
-> `6357460b    fastboot`  
-> *(If the output is blank, review cable connections and install drivers via [`drivers/install_drivers.cmd`](../../drivers/README.md)).*
 
 #### Step 3. Flash Recovery Image to the Hardware Partition
 Write the recovery image directly to the physical `recovery` partition:

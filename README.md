@@ -37,6 +37,7 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 | Feature | Purpose | PC Required? | Recovery Method |
 | :--- | :--- | :---: | :---: |
 | **Recovery Install** | Flash OrangeFox / TWRP image to hardware partition | Yes (Fastboot) | `fastboot flash recovery` |
+| **Fastboot Reference** | Complete hardware diagnostics, ARB 4 check, safe wipes | Yes (Fastboot) | [Fastboot Cheat Sheet](docs/ru/FASTBOOT_CHEAT_SHEET.md) |
 | **Diagnostics** | Hardware, partition, and RAM verification | Yes (ADB) | Not applicable |
 | **ROM Patcher** | Automated `unsparse_super_empty.img` byte & SHA-256 fix | Yes (Windows/Python) | Flash patched ZIP |
 | **Manual Patch** | In-depth hex editing and independent checksum validation | Yes (Hex Editor) | Flash modified ZIP |
@@ -45,10 +46,36 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 
 ---
 
+## 🚀 Fastboot: Essential Commands / Главные команды Fastboot
+
+Complete, safe commands to install recovery and inspect hardware on Redmi Note 6 Pro:
+
+```powershell
+# 1. Проверить подключение и модель устройства / Check connection & model
+fastboot devices
+fastboot getvar product          # Ожидается: tulip (или twolip)
+
+# 2. Проверить статус загрузчика и Anti-Rollback / Check bootloader & ARB
+fastboot oem device-info         # Ожидается: Device unlocked: true
+fastboot getvar anti             # Ожидается: anti: 4 (НИКОГДА не шейте старый MIUI ARB 3!)
+
+# 3. Прошить кастомное рекавери / Flash Custom Recovery
+fastboot flash recovery recovery.img
+
+# 4. СРАЗУ запустить рекавери (защита от авто-затирания стоковой MIUI) / Boot immediately
+fastboot boot recovery.img
+```
+
+> [!TIP]
+> Полный справочник команд с описанием всех разделов, режимов EDL, очистки кэша и решением проблем с USB 3.0 на AMD Ryzen доступен в **[Справочнике команд Fastboot (RU)](docs/ru/FASTBOOT_CHEAT_SHEET.md)** и **[Fastboot Command Reference (EN)](docs/en/FASTBOOT_CHEAT_SHEET.md)**.
+
+---
+
 ## 🧭 Navigation & Documentation Index
 
 ### 🇷🇺 Документация (Русский)
 * [Быстрый старт](docs/ru/GETTING_STARTED.md) — Пошаговое руководство для новичков.
+* [Справочник команд Fastboot](docs/ru/FASTBOOT_CHEAT_SHEET.md) — Все команды Fastboot, ARB 4, EDL, решение проблем с USB 3.0.
 * [Совместимость устройств](docs/ru/DEVICE_COMPATIBILITY.md) — Tulip vs Whyred, проверенные ROM.
 * [Архитектура разделов](docs/ru/PARTITIONS_EXPLAINED.md) — Что такое Retrofit Super, GPT и `liblp`.
 * [Каталог ошибок](docs/ru/ERRORS_AND_SOLUTIONS.md) — Подробный разбор Error 1, bootloop, Error 21.
@@ -60,6 +87,7 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 
 ### 🇬🇧 Documentation (English)
 * [Getting Started](docs/en/GETTING_STARTED.md) — Step-by-step guide for beginners.
+* [Fastboot Command Reference](docs/en/FASTBOOT_CHEAT_SHEET.md) — Full Fastboot CLI reference, ARB 4, EDL, USB 3.0 fix.
 * [Device Compatibility](docs/en/DEVICE_COMPATIBILITY.md) — Tulip vs Whyred specs, tested ROMs.
 * [Partition Architecture](docs/en/PARTITIONS_EXPLAINED.md) — Retrofit Super, GPT geometry, `liblp`.
 * [Errors and Solutions](docs/en/ERRORS_AND_SOLUTIONS.md) — Comprehensive Error 1 & bootloop teardown.
@@ -76,8 +104,8 @@ Open-source toolkit and technical reference for resolving **Error 1 (`update_dyn
 ```text
 tulip-dynamic-partitions-fix/
 ├── docs/
-│   ├── ru/                      # Русскоязычная документация (10 руководств)
-│   ├── en/                      # English documentation (10 guides)
+│   ├── ru/                      # Русскоязычная документация (11 руководств)
+│   ├── en/                      # English documentation (11 guides)
 │   ├── diagrams/                # Схемы архитектуры и Mermaid-диаграммы
 │   └── reference/               # Аппаратные замеры и технические отчеты
 ├── drivers/
@@ -105,4 +133,7 @@ tulip-dynamic-partitions-fix/
 - "Block device cust size is too small (expected 872415232, got 871366656)"
 - "Tulip bootloop to recovery fix F2FS"
 - "Redmi Note 6 Pro dynamic partitions"
+- "fastboot flash recovery tulip"
+- "fastboot boot recovery.img"
+- "fastboot getvar anti tulip"
 ```
